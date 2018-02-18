@@ -1,0 +1,176 @@
+{% extends "index.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Register for an account" %}{% endblock %}
+
+{% block class %}class="registration"{% endblock %}
+
+{% block content %}
+    <!--START: CONTAINER-FLUID-->
+	<div class="container-fluid">
+		<!--START: REGISTRATION LAYOUT-->
+		<div class="registration-layout">
+			<!--START: FIRST ROW | HEADER-->
+			<div class="row header-layout">
+                <!--START: HEADER-->
+				<header>
+					<!--<i class="fa fa-rocket"></i>-->
+					<h1>{% trans 'WELCOME' %}</h1>
+					<p>{% trans 'Create your account. It`s free and takes less than 30 seconds.' %}</p>
+				</header>
+                <!--END: HEADER-->
+			</div>
+			<!--END: FIRST ROW | HEADER-->
+
+			<!--START: SECOND ROW | CONTENT-->
+			<div class="row content-layout">
+				<!--START: FIRST COLUMN | LEFT-SIDE-->
+				<div class="col-xl-6 col-lg-6 col-md-7 col-sm-12 col-12 left-side">
+					<!--START: FIRST-ROW | LEFT-TITLE-->
+					<div class="row title left-title">
+						<h1>{% trans 'Connect with a classic way' %}</h1>
+					</div>
+					<!--END: FIRST-ROW | LEFT-TITLE-->
+
+                    <!--START: SECOND-ROW-->
+					<div class="row">
+						<!--START: FORM-->
+						<form  method="post" action="" class="form-layout" novalidate>
+							<fieldset>
+								<section>
+									<label class="input {% if form.username.errors %}state-error{% endif %}">
+										<i class="icon-prepend fa fa-user"></i>
+										<i class="icon-append fa fa-asterisk"></i>
+										{{ form.username }}
+                                        {% for error in form.username.errors %}
+                                            <div class="note note-error">{{ error|escape }}</div>
+                                        {% endfor %}
+									</label>
+								</section>
+
+								<section>
+									<label class="input {% if form.email.errors %}state-error{% endif %}">
+										<i class="icon-prepend fa fa-envelope"></i>
+										<i class="icon-append fa fa-asterisk"></i>
+										{{ form.email }}
+                                        {% for error in form.email.errors %}
+                                            <div class="note note-error">{{ error|escape }}</div>
+                                        {% endfor %}
+									</label>
+								</section>
+
+								<section>
+									<label class="input {% if form.password1.errors %}state-error{% endif %}">
+										<i class="icon-prepend fa fa-lock"></i>
+										<i class="icon-append fa fa-asterisk"></i>
+                                        {{ form.password1 }}
+                                        {% for error in form.password1.errors %}
+                                            <div class="note note-error">{{ error|escape }}</div>
+                                        {% endfor %}
+									</label>
+								</section>
+
+								<section>
+									<label class="input {% if form.password2.errors %}state-error{% endif %}">
+										<i class="icon-prepend fa fa-lock"></i>
+										<i class="icon-append fa fa-asterisk"></i>
+                                        {{ form.password2 }}
+                                        {% for error in form.password2.errors %}
+                                            <div class="note note-error">{{ error|escape }}</div>
+                                        {% endfor %}
+									</label>
+								</section>
+
+								<div class="row">
+									<section class="col col-6">
+										<label class="input {% if form.first_name.errors %}state-error{% endif %}">
+											<i class="icon-prepend fa fa-asterisk"></i>
+                                            {{ form.first_name }}
+											{% for error in form.first_name.errors %}
+                                                <div class="note note-error">{{ error|escape }}</div>
+                                            {% endfor %}
+										</label>
+									</section>
+									<section class="col col-6">
+										<label class="input {% if form.last_name.errors %}state-error{% endif %}">
+											<i class="icon-prepend fa fa-asterisk"></i>
+											{{ form.last_name }}
+											{% for error in form.last_name.errors %}
+                                                <div class="note note-error">{{ error|escape }}</div>
+                                            {% endfor %}
+										</label>
+									</section>
+								</div>
+
+                                <section>
+                                    {{ form.recaptcha }}
+                                    {% for error in form.recaptcha.errors %}
+                                        <div class="note note-error text-center">{{ error|escape }}</div>
+                                    {% endfor %}
+                                    <button type="submit" class="btn submit-button">{% trans "SIGN UP" %}</button>
+                                </section>
+							</fieldset>
+                            {% csrf_token %}
+						</form>
+						<!--END: FORM-->
+					</div>
+                    <!--END: SECOND-ROW-->
+				</div>
+				<!--END: FIRST COLUMN | LEFT-SIDE-->
+
+				<!--START: SECOND COLUMN | RIGHT SIDE-->
+				<div class="col-xl-6 col-lg-6 col-md-5 col-sm-12 col-12 right-side">
+					<!--START: RIGHT-TITLE-->
+					<div class="row title right-title">
+						<h1>{% trans 'Connect with your social network account' %}</h1>
+					</div>
+					<!--END: RIGHT-TITLE-->
+
+                    <!--START: SOCIAL NETWORK LAYOUT-->
+					<div class="social-network-layout">
+                        <div class="row">
+                            <div class="ol-xl-12 col-lg-12 col-md-12 col-sm-6 col-12">
+                                <a class="social-button text-center" href="{% url 'social:begin' 'facebook' %}">
+                                    <span>Facebook</span>
+                                </a>
+                            </div>
+                            <div class="ol-xl-12 col-lg-12 col-md-12 col-sm-6 col-12">
+                                <a class="social-button text-center" href="{% url 'social:begin' 'github' %}">
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="ol-xl-12 col-lg-12 col-md-12 col-sm-6 col-12">
+                                <a class="social-button text-center" href="{% url 'social:begin' 'vk-oauth2' %}">
+                                    <span>Вконтакте</span>
+                                </a>
+                            </div>
+                            <div class="ol-xl-12 col-lg-12 col-md-12 col-sm-6 col-12">
+                                <a class="social-button text-center" href="{% url "social:begin" "google-oauth2" %}">
+                                    <span>Google</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END: SOCIAL NETWORK LAYOUT-->
+				</div>
+				<!--END: SECOND COLUMN | RIGHT-SIDE-->
+			</div>
+			<!--END: SECOND ROW | CONTENT-->
+		</div>
+		<!--END: REGISTRATION LAYOUT-->
+	</div>
+	<!--END: CONTAINER-FLUID-->
+{% endblock %}
+
+{% comment %}
+**account/registration_form.html**
+Used to show the form users will fill out to register. By default, has the following context:
+
+``form``
+    The account form.
+    This will be an instance of some subclass of ``django.forms.Form``;
+    Consult `Django's forms documentation <http://docs.djangoproject.com/en/dev/topics/forms/>` for information on how to display this in a template.
+{% endcomment %}

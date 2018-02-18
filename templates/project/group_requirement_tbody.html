@@ -1,0 +1,16 @@
+{% load i18n %}
+{% for group_requirement in group_requirements %}
+    <tr>
+        <td class="text-center" style="width: 20%">{{ group_requirement.symbol }}</td>
+        <td style="width: 70%">{{ group_requirement.task }}</td>
+        <td style="width: 10%">
+            <a class="btn btn-sm btn-info" href="{% url 'project:group_requirement_detail' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code %}">
+                <i class="fa fa-sign-in" aria-hidden="true"></i>&#9;<span>{% trans 'Requirements' %}</span>
+            </a>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="3" class="table-active text-center"><i class="fa fa-info-circle" aria-hidden="true"></i> {% trans 'NO INFORMATION' %}</td>
+    </tr>
+{% endfor %}

@@ -1,0 +1,21 @@
+{% load i18n %}
+
+<div class="card-columns">
+{% for project in projects %}
+    <div class="card">
+        <div class="card-block">
+            <h4 class="card-title">{{ project.name }}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{% trans 'Date of creation' %}:&#9;{{ project.creation_date }}</h6>
+            <p class="card-text p-justify">{{ project.description|truncatewords:40 }}</p>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-primary w-100" href="{% url 'project:project_detail' project.code %}">{% trans 'Open' %}</a>
+        </div>
+    </div>
+{% empty %}
+    <div class="alert alert-danger w-100" role="alert">
+        <h4 class="alert-heading text-uppercase text-center"><i class="fa fa-info-circle" aria-hidden="true"></i>&#9;{% trans 'No data' %}</h4>
+        <p class="text-center mb-0">{% trans 'Right now there is no project in the system where are you the member.' %}</p>
+    </div>
+{% endfor %}
+</div>

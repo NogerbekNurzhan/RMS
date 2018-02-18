@@ -1,0 +1,12 @@
+{% load i18n %}
+{% if request_user_is_business_analyst %}
+    {% if not purpose_is_exist %}
+        <button class="btn btn-primary" id="purpose-add-button" data-url="{% url 'project:purpose_add' project_code=project.code %}">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </button>
+    {% endif %}
+{% endif %}
+<h3 class="custom-h"><i class="fa fa-info" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'Purpose of the System' %}</span></h3>
+<button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapse-purpose" aria-expanded="false" aria-controls="collapse-purpose">
+    <i class="fa fa-eye" aria-hidden="true"></i>
+</button>

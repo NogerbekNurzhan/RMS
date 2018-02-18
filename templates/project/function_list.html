@@ -1,0 +1,57 @@
+{% load i18n %}
+
+<div class="list-group" id="function-list">
+    {% for function in functions %}
+        <div class="list-group-item flex-column align-items-start custom-list-group-item">
+
+            <div class="d-flex w-100 justify-content-end">
+                <a class="btn btn-sm btn-danger" href="{% url 'project:function_reversions' project_code=project.code group_task_code=group_task.code task_code=task.code function_code=function.code %}">
+                    <i class="fa fa-history" aria-hidden="true"></i>&#9;<span>{% trans 'Reversions' %}</span>
+                </a>
+            </div>
+
+            <div class="d-flex w-100 justify-content-center">
+                <h5 class="mb-1">{{ function.name }}</h5>
+            </div>
+
+            <div class="d-flex w-100 justify-content-center">
+                <small class="text-uppercase">{% trans 'Symbol' %}:&#9;{{ function.symbol }}</small>
+            </div>
+
+            <div class="d-flex w-100 justify-content-end custom-d-flex">
+                {% if request_user_is_business_analyst %}
+                <div class="mr-auto">
+                    <a class="btn btn-sm btn-warning" id="js-edit-function-button" data-url="{% url 'project:function_edit' project_code=project.code group_task_code=group_task.code task_code=task.code function_code=function.code %}">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>&#9;<span>{% trans 'Edit' %}</span>
+                    </a>
+                </div>
+                {% endif %}
+                <div class="function-comment-number">
+                    {% include 'project/function_comment_number.html' %}
+                </div>
+                <div>
+                    <a class="btn btn-sm btn-primary" data-toggle="collapse" href="#collapse-function-{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse-function-{{ forloop.counter }}">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i>&#9;<span>{% trans 'Comments' %}</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse w-100 comment-list-block" id="collapse-function-{{ forloop.counter }}">
+                <div class="list-group custom-list-group">
+                    <div class="list-group-item bg-faded">
+                        {% include 'project/function_comment_form.html' %}
+                    </div>
+                    <div class="function-comments">
+                        {% include 'project/function_comment_list.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="list-group-item flex-column align-items-start custom-no-top-radius">
+            <div class="d-flex w-100 justify-content-center">
+                <h6 class="mb-1 custom-h"><i class="fa fa-info-circle" aria-hidden="true"></i>&#9;{% trans 'NO INFORMATION' %}</h6>
+            </div>
+        </div>
+    {% endfor %}
+</div>

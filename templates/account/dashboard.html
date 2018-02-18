@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block content %}
+    <p>Hello {{ user.username }}!</p>
+{% endblock %}

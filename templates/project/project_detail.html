@@ -1,0 +1,273 @@
+{% extends "index.html" %}
+
+{% load i18n static %}
+
+{% block title %}{{ project.name }}{% endblock %}
+
+{% block style %}
+    {# JQuery UI CSS #}
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+    <link rel="stylesheet" href="{% static 'css/autocomplete_bootstrap.css' %}"/>
+    {# Django Select 2 CSS #}
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
+{% endblock %}
+
+{% block header %}
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-primary">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 class="navbar-brand mb-0 text-uppercase"><strong>{% trans 'Project detail' %}</strong></h1>
+        <div  id="navbarNavDropdown" class="navbar-collapse collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i>&#9;{% trans 'Home' %}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'project:dashboard' %}"><i class="fa fa-laptop" aria-hidden="true"></i>&#9;{% trans 'Dashboard' %}</a>
+            </li>
+            <li class="nav-item dropdown">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                <a class="nav-link dropdown-toggle" href="" id="languages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                    <span>{% trans 'Languages' %}&#9;<span class="text-uppercase">({{ LANGUAGE_CODE }})</span></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languages">
+                    <h6 class="dropdown-header">{% trans 'Available languages' %}</h6>
+                    {% for language in languages %}
+                        <a class="dropdown-item {% if language.code == LANGUAGE_CODE %}disabled{% endif %}" href="/{{ language.code }}/account/dashboard/projects/{{ project.code }}/">
+                            <span class="flag-icon {% if language.code == 'en' %}flag-icon-gb{% elif language.code == 'ru' %}flag-icon-ru{% endif %}"></span>&#9;<span>{{ language.name_local }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <span class="nav-link active navbar-text">{{ user.get_username }}&#9;-&#9;{{ role }}</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-danger navbar-inverse active" href="{% url 'auth_logout' %}">{% trans 'Logout' %}</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="project-layout">
+        {# START: Jumbotron #}
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h4 class="display-4 text-center">{{ project.name }}</h4>
+                <p>{{ project.description|linebreaks }}</p>
+                <div class="d-flex align-items-center justify-content-center">
+                    <a class="btn btn-primary align-items-center" href="{% url 'project:generate_pdf' project_code=project.code %}"><i class="fa fa-file-text" aria-hidden="true"></i>&#9;<span>{% trans 'Generate Document of Technical Specification' %}</span></a>
+                </div>
+            </div>
+        </div>
+        {# END: Jumbotron #}
+
+        {# START: CONTAINER #}
+        <div class="container">
+            {# START: CARD: PROJECT MEMBERS #}
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                        {% if request_user_is_manager %}
+                            <button class="btn btn-primary" id="project-member-add-button" data-url="{% url 'project:project_member_add' project_code=project.code %}">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                            </button>
+                        {% endif %}
+                        <h3 class="custom-h"><i class="fa fa-users" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'Project members' %}</span></h3>
+                        <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapse-project-member" aria-expanded="false" aria-controls="collapse-project-member">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div class="collapse" id="collapse-project-member">
+                        <table class="table table-bordered" id="project-member-table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center text-uppercase">{% trans 'Username' %}</th>
+                                    <th class="text-center text-uppercase">{% trans 'Role' %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% include 'project/project_member_list.html' %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {# END: CARD: PROJECT MEMBERS #}
+
+            {# START: PURPOSE #}
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between" id="purpose-top">
+                        {% include 'project/purpose_top.html' %}
+                    </div>
+                </div>
+                 <div class="card-block">
+                    <div class="collapse purpose-block" id="collapse-purpose">
+                        {% include 'project/purpose_list.html' %}
+                    </div>
+                </div>
+            </div>
+            {# END: PURPOSE #}
+
+            {# START: CREATION GOAL #}
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between" id="creation-goal-top">
+                        {% include 'project/creation_goal_top.html' %}
+                    </div>
+                </div>
+                 <div class="card-block">
+                    <div class="collapse creation-goal-block" id="collapse-creation-goal">
+                        {% include 'project/creation_goal_list.html' %}
+                    </div>
+                </div>
+            </div>
+            {# END: CREATION GOAL #}
+
+            {# START: OBJECT INFORMATION #}
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between" id="object-information-top">
+                        {% include 'project/object_information_top.html' %}
+                    </div>
+                </div>
+                 <div class="card-block">
+                    <div class="collapse object-information-block" id="collapse-object-information">
+                        {% include 'project/object_information_list.html' %}
+                    </div>
+                </div>
+            </div>
+            {# END: OBJECT INFORMATION #}
+
+            {# START: GROUP TASKS #}
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h3 class="mr-auto custom-h"><i class="fa fa-list-ol" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'Group Tasks' %}</span></h3>
+
+                        {% if request_user_is_business_analyst %}
+                            <button class="btn btn-primary" id="group-task-add-button" data-url="{% url 'project:group_task_add' project_code=project.code %}">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            </button>
+                        {% endif %}
+
+                        {% if group_tasks %}
+                            <button class="btn btn-secondary custom-margin-left-button" id="expand-collapse-group-task" type="button">
+                                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                            </button>
+                        {% endif %}
+
+                        <button class="btn btn-secondary custom-margin-left-button" type="button" data-toggle="collapse" data-target="#collapse-group-task" aria-expanded="false" aria-controls="collapse-group-task">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div class="collapse group-task-block" id="collapse-group-task">
+                        {% include 'project/group_task_list.html' %}
+                    </div>
+                </div>
+            </div>
+            {# END: GROUP TASKS #}
+
+            {# START: User Characteristics #}
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <h3 class="mr-auto custom-h"><i class="fa fa-address-card-o" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'User characteristics' %}</span></h3>
+
+                        {% if request_user_is_business_analyst %}
+                            <button class="btn btn-primary" id="user-characteristic-add-button" data-url="{% url 'project:user_characteristic_add' project_code=project.code %}">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            </button>
+                        {% endif %}
+
+                        {% if user_characteristics %}
+                            <button class="btn btn-secondary custom-margin-left-button" id="expand-collapse-user-characteristic" type="button">
+                                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                            </button>
+                        {% endif %}
+
+                        <button class="btn btn-secondary custom-margin-left-button" type="button" data-toggle="collapse" data-target="#collapse-user-characteristic" aria-expanded="false" aria-controls="collapse-user-characteristic">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div class="collapse user-characteristic-block" id="collapse-user-characteristic">
+                        {% include 'project/user_characteristic_list.html' %}
+                    </div>
+                </div>
+            </div>
+            {# END: User Characteristics #}
+
+            {# START: GROUP REQUIREMENT TYPES #}
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <h3 class="custom-h mr-auto"><i class="fa fa-table" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'Group requirement types' %}</span></h3>
+                        <div>
+                            {% if request_user_is_system_analyst %}
+                                <button class="btn btn-primary" id="group-requirement-type-add-button" data-url="{% url 'project:group_requirement_type_add' project_code=project.code %}">
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                </button>
+                            {% endif %}
+                            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapse-group-requirement-type" aria-expanded="false" aria-controls="collapse-group-requirement-type">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div class="collapse group-requirement-type-block" id="collapse-group-requirement-type">
+                        {% include 'project/group_requirement_type_list.html' %}
+                    </div>
+                </div>
+            </div>
+            {# END: GROUP REQUIREMENT TYPES #}
+
+            {# START: ADD MODAL #}
+            <div class="modal fade" id="modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                    </div>
+                </div>
+            </div>
+            {# END: ADD MODAL #}
+
+            {# START: LARGE MODAL #}
+            <div class="modal fade" id="modal-lg">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                    </div>
+                </div>
+            </div>
+            {# END: LARGE MODAL #}
+        </div>
+        {# END: CONTAINER #}
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/crud.js'%}"></script>
+    <script src="{% static 'js/collapse.js' %}"></script>
+    <script src="{% static 'js/expand-collapse.js' %}"></script>
+    {# JQuery UI JS #}
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    {# Django Select 2 JS #}
+    <script src="{% static 'django_select2/django_select2.js' %}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+{% endblock %}

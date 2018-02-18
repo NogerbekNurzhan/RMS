@@ -1,0 +1,16 @@
+{% load i18n %}
+{% for comment  in group_task.comments.all %}
+    <div class="list-group-item flex-column align-items-start custom-no-top-radius">
+        <div class="d-flex w-100 justify-content-between">
+            <h6 class="mb-1">{{ comment.author }}</h6>
+            <small>{{ comment.created }}</small>
+        </div>
+        <p class="custom-p">{{ comment.text }}</p>
+    </div>
+{% empty %}
+    <div class="list-group-item flex-column align-items-start custom-no-top-radius">
+        <div class="d-flex w-100 justify-content-center">
+            <h6 class="mb-1 custom-h"><i class="fa fa-info-circle" aria-hidden="true"></i>&#9;{% trans 'NO COMMENTS' %}</h6>
+        </div>
+    </div>
+{% endfor %}

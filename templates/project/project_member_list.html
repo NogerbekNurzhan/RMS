@@ -1,0 +1,6 @@
+{% for member in project.member_set.all %}
+    <tr>
+        <td class="text-center">{{ member.user }}</td>
+        <td class="text-center">{{ member.get_role_display }}</td>
+    </tr>
+{% endfor %}

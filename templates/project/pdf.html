@@ -1,0 +1,440 @@
+{% load static i18n %}
+<html>
+    <head>
+        {# Bootstrap CSS #}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+
+        <style>
+            .project-layout .container .card .card-header h4{
+                padding-bottom: 0 !important;
+            }
+            .project-layout .container .card .card-header{
+                padding-bottom: 0 !important;
+            }
+            .project-layout .card{
+                margin-bottom: 30px;
+            }
+            .project-layout .container .card .card-block{
+                padding: 0;
+            }
+            .project-layout .container .card .card-block .table{
+                margin-bottom: 0;
+            }
+            .project-layout .jumbotron .container p{
+                text-align: justify; /* Выравнивание по ширине */
+            }
+            .project-layout .container .card .card-block table thead tr th{
+                padding-bottom: 2px !important;
+            }
+            .project-layout .card .card-block .list-group .list-group-item p{
+                text-align: justify;
+            }
+            .project-layout .card .card-block .list-group .list-group-item:first-child {
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="project-layout">
+            <h4 class="display-4 text-center">{% trans 'Technical Requirements Specification' %}</h4>
+            {# START: Jumbotron #}
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h4 class="display-4 text-center">{{ project.name }}</h4>
+                    <p>{{ project.description|linebreaks }}</p>
+                </div>
+            </div>
+            {# END: Jumbotron #}
+
+            {# START: CONTAINER #}
+            <div class="container">
+                {# START: PROJECT MEMBERS #}
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center text-uppercase"><strong>{% trans 'Project members' %}</strong></h4>
+                    </div>
+                    <div class="card-block">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">{% trans 'Username' %}</th>
+                                    <th class="text-center">{% trans 'Role' %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for member in project.member_set.all %}
+                                <tr>
+                                    <td class="text-center">{{ member.user }}</td>
+                                    <td class="text-center">{{ member.get_role_display }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {# END: PROJECT MEMBERS #}
+
+                {# START: PURPOSE #}
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header">
+                            <h4 class="text-center text-uppercase"><strong>{% trans 'Purpose of the System' %}</strong></h4>
+                        </div>
+                    </div>
+                     <div class="card-block">
+                        <div class="list-group">
+                         {% for purpose in purposes %}
+                            <div class="list-group-item">
+                                <p>{{ purpose.text|linebreaks }}</p>
+                            </div>
+                         {% endfor %}
+                     </div>
+                    </div>
+                </div>
+                {# END: PURPOSE #}
+
+                {# START: CREATION GOAL #}
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header">
+                            <h4 class="text-center text-uppercase"><strong>{% trans 'Creation goals' %}</strong></h4>
+                        </div>
+                    </div>
+                     <div class="card-block">
+                        <div class="list-group">
+                         {% for purpose in purposes %}
+                            <div class="list-group-item">
+                                <p>{{ purpose.text|linebreaks }}</p>
+                            </div>
+                         {% endfor %}
+                     </div>
+                    </div>
+                </div>
+                {# END: CREATION GOAL #}
+
+                {# START: OBJECT INFORMATION #}
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header">
+                            <h4 class="text-center text-uppercase"><strong>{% trans 'General information about object' %}</strong></h4>
+                        </div>
+                    </div>
+                     <div class="card-block">
+                        <div class="list-group">
+                         {% for object_information in object_information_all %}
+                            <div class="list-group-item">
+                                <p>{{ object_information.text|linebreaks }}</p>
+                            </div>
+                         {% endfor %}
+                     </div>
+                    </div>
+                </div>
+                {# END: OBJECT INFORMATION #}
+
+                {# START: User Characteristics #}
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center text-uppercase"><strong>{% trans 'User characteristics' %}</strong></h4>
+                    </div>
+                    <div class="card-block">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">{% trans 'Class' %}</th>
+                                    <th class="text-center">{% trans 'Symbol' %}</th>
+                                    <th class="text-center">{% trans 'Description' %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for user_characteristic in user_characteristics %}
+                                <tr>
+                                    <td class="text-center">{{ user_characteristic.user_class }}</td>
+                                    <td class="text-center">{{ user_characteristic.user_symbol }}</td>
+                                    <td>{{ user_characteristic.user_description }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {# END: User Characteristics #}
+
+                {# START: GROUP TASKS #}
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center text-uppercase"><strong>{% trans 'Group Tasks' %}</strong></h4>
+                    </div>
+                    <div class="card-block">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">{% trans 'Symbol' %}</th>
+                                    <th class="text-center">{% trans 'Description' %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for group_task in group_tasks %}
+                                <tr>
+                                    <td class="text-center">{{ group_task.symbol }}</td>
+                                    <td>{{ group_task.name }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {# END: GROUP TASK #}
+
+                {# START: TASKS #}
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center text-uppercase"><strong>{% trans 'Tasks' %}</strong></h4>
+                    </div>
+                    <div class="card-block">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">{% trans 'Symbol' %}</th>
+                                    <th class="text-center">{% trans 'Description' %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for group_task in group_tasks %}
+                                {% for task in group_task.task_set.all %}
+                                    <tr>
+                                        <td class="text-center">{{ task.symbol }}</td>
+                                        <td>{{ task.name }}</td>
+                                    </tr>
+                                {% endfor %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {# END: TASKS #}
+
+                {# START: FUNCTIONS #}
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center text-uppercase"><strong>{% trans 'Functions' %}</strong></h4>
+                    </div>
+                    <div class="card-block">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">{% trans 'Symbol' %}</th>
+                                    <th class="text-center">{% trans 'Description' %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for group_task in group_tasks %}
+                                {% for task in group_task.task_set.all %}
+                                    {% for function in task.function_set.all %}
+                                        <tr>
+                                            <td class="text-center">{{ function.symbol }}</td>
+                                            <td>{{ function.name }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endfor %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {# END: FUNCTIONS #}
+
+                {# START: GROUP REQUIREMENTS TYPES #}
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center text-uppercase"><strong>{% trans 'Group Requirements Types' %}</strong></h4>
+                    </div>
+                    <div class="card-block">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">{% trans 'Symbol' %}</th>
+                                    <th class="text-center">{% trans 'Description' %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for group_requirement_type in group_requirement_types %}
+                                <tr>
+                                    <td class="text-center">{{ group_requirement_type.symbol }}</td>
+                                    <td>{{ group_requirement_type.name }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {# END: GROUP REQUIREMENTS TYPES #}
+
+                {# START: GROUP REQUIREMENTS #}
+                {% for group_requirement_type in group_requirement_types %}
+                    {% if group_requirement_type.symbol == "FA" %}
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">{{ group_requirement_type }}</h4>
+                            </div>
+                            <div class="card-block">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">{% trans 'Symbol' %}</th>
+                                            <th class="text-center">{% trans 'Function' %}</th>
+                                            <th class="text-center">{% trans 'Users' %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for group_requirement in group_requirement_type.grouprequirement_set.all %}
+                                        <tr>
+                                            <td class="text-center">{{ group_requirement.symbol }}</td>
+                                            <td>{{ group_requirement.task }}</td>
+                                            <td></td>
+                                        </tr>
+                                        {% for requirement in group_requirement.requirement_set.all %}
+                                            <tr>
+                                                <td class="text-center">{{ requirement.symbol }}</td>
+                                                <td>{% for function in requirement.function.all %}{{ function }}{% endfor %}</td>
+                                                <td>{% for user_characteristic in requirement.user_characteristic.all %}{{ user_characteristic }}{% if forloop.last %}.{% else %},&#9;{% endif %}{% endfor %}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    {% elif group_requirement_type.symbol == "V" %}
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">{{ group_requirement_type }}</h4>
+                            </div>
+                            <div class="card-block">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">{% trans 'Symbol' %}</th>
+                                            <th class="text-center">{% trans 'Use case' %}</th>
+                                            <th class="text-center">{% trans 'User characterictic' %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for group_requirement in group_requirement_type.grouprequirement_set.all %}
+                                        <tr>
+                                            <td class="text-center">{{ group_requirement.symbol }}</td>
+                                            <td>{{ group_requirement.name }}</td>
+                                            <td></td>
+                                        </tr>
+                                        {% for requirement in group_requirement.requirement_set.all %}
+                                            <tr>
+                                                <td class="text-center">{{ requirement.symbol }}</td>
+                                                <td>{{ requirement.description }}</td>
+                                                <td>{% for user_characteristic in requirement.user_characteristic.all %}{{ user_characteristic }}{% if forloop.last %}.{% else %},&#9;{% endif %}{% endfor %}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    {% elif group_requirement_type.symbol == "DF" %}
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">{{ group_requirement_type }}</h4>
+                            </div>
+                            <div class="card-block">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">{% trans 'Symbol' %}</th>
+                                            <th class="text-center">{% trans 'Requirement' %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for group_requirement in group_requirement_type.grouprequirement_set.all %}
+                                        <tr>
+                                            <td class="text-center">{{ group_requirement.symbol }}</td>
+                                            <td>{{ group_requirement.task }}</td>
+                                        </tr>
+                                        {% for requirement in group_requirement.requirement_set.all %}
+                                            <tr>
+                                                <td class="text-center">{{ requirement.symbol }}</td>
+                                                <td>{% for function in requirement.function.all %}{{ function }}{% endfor %}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">{{ group_requirement_type }}</h4>
+                            </div>
+                            <div class="card-block">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">{% trans 'Symbol' %}</th>
+                                            <th class="text-center">{% trans 'Description' %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for group_requirement in group_requirement_type.grouprequirement_set.all %}
+                                        <tr>
+                                            <td class="text-center">{{ group_requirement.symbol }}</td>
+                                            <td>{{ group_requirement.name }}</td>
+                                        </tr>
+                                        {% for requirement in group_requirement.requirement_set.all %}
+                                            <tr>
+                                                <td class="text-center">{{ requirement.symbol }}</td>
+                                                <td>{{ requirement.description }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                {# END: GROUP REQUIREMENTS #}
+
+                {# START: SPECIFICATIONS #}
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center text-uppercase"><strong>{% trans 'Specifications' %}</strong></h4>
+                    </div>
+                    <div class="card-block">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">{% trans 'Symbol' %}</th>
+                                    <th class="text-center">{% trans 'Description' %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for group_requirement_type in group_requirement_types %}
+                                {% for group_requirement in group_requirement_type.grouprequirement_set.all %}
+                                    {% for requirement in group_requirement.requirement_set.all %}
+                                        {% for specification in requirement.specification_set.all %}
+                                        <tr>
+                                            <td class="text-center">{{ specification.symbol }}</td>
+                                            <td>{{ specification.description }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% endfor %}
+                                {% endfor %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {# END: SPECIFICATIONS #}
+            </div>
+            {# END: CONTAINER #}
+        </div>
+    </body>
+</html>

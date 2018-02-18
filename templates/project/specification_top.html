@@ -1,0 +1,15 @@
+{% load i18n %}
+
+{% if specifications %}
+    <button class="btn btn-secondary" id="expand-collapse" type="button">
+        <i class="fa fa-commenting-o" aria-hidden="true"></i>
+    </button>
+{% endif %}
+<h3 class="custom-h"><i class="fa fa-delicious" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'Specification' %}</span></h3>
+{% if request_user_is_developer %}
+    {% if not specification_is_exist %}
+        <button class="btn btn-primary" id="specification-add-button" data-url="{% url 'project:specification_add' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </button>
+    {% endif %}
+{% endif %}

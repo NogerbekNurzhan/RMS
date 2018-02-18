@@ -1,0 +1,148 @@
+{% extends "index.html" %}
+
+{% load i18n static %}
+
+{% block title %}{% trans "Requirement Management System" %}{% endblock %}
+
+{% block header %}
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-primary">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 class="navbar-brand mb-0 text-uppercase"><strong>{% trans 'RMS' %}</strong></h1>
+        <div  id="navbarNavDropdown" class="navbar-collapse collapse">
+        <ul class="navbar-nav mr-auto">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'project:dashboard' %}"><i class="fa fa-tasks" aria-hidden="true"></i>&#9;{% trans 'Dashboard' %}</a>
+                </li>
+            {% endif %}
+            <li class="nav-item dropdown">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                <a class="nav-link dropdown-toggle" href="" id="languages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                    <span>{% trans 'Languages' %}&#9;<span class="text-uppercase">({{ LANGUAGE_CODE }})</span></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languages">
+                    <h6 class="dropdown-header">{% trans 'Available languages' %}</h6>
+                    {% for language in languages %}
+                        <a class="dropdown-item {% if language.code == LANGUAGE_CODE %}disabled{% endif %}" href="/{{ language.code }}/">
+                            <span class="flag-icon {% if language.code == 'en' %}flag-icon-gb{% elif language.code == 'ru' %}flag-icon-ru{% endif %}"></span>&#9;<span>{{ language.name_local }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <span class="nav-link active navbar-text">{{ user.get_username }}</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-danger navbar-inverse active" href="{% url 'auth_logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i>&#9;{% trans 'Logout' %}</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link btn btn-danger navbar-inverse active" href="{% url 'auth_login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i>&#9;{% trans 'Login' %}</a>
+                </li>
+            {% endif %}
+        </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="home-layout">
+        {# START: CONTAINER #}
+        <div class="container-fluid">
+            {% if user.is_authenticated %}
+                {# START: Проекты в которых пользователь МЕНЕДЖЕР #}
+                <div class="card" id="manager-projects">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <h3 class="custom-h text-center"><i class="fa fa-address-card-o" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'Manager' %}</span></h3>
+                        </div>
+                    </div>
+                    <div class="card-block endless_page_template">
+                        {% include "home/manager_projects.html" %}
+                    </div>
+                </div>
+                {# END: Проекты в которых пользователь МЕНЕДЖЕР #}
+
+                {# START: Проекты в которых пользователь РАЗРАБОТЧИК #}
+                <div class="card" id="developer-projects">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <h3 class="custom-h text-center"><i class="fa fa-address-card-o" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'Developer' %}</span></h3>
+                        </div>
+                    </div>
+                    <div class="card-block endless_page_template">
+                        {% include "home/developer_projects.html" %}
+                    </div>
+                </div>
+                {# END: Проекты в которых пользователь РАЗРАБОТЧИК #}
+
+                {# START: Проекты в которых пользователь БИЗНЕС АНАЛИТИК #}
+                <div class="card" id="business-analyst-projects">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <h3 class="custom-h text-center"><i class="fa fa-address-card-o" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'Business Analyst' %}</span></h3>
+                        </div>
+                    </div>
+                    <div class="card-block endless_page_template">
+                        {% include "home/business_analyst_projects.html" %}
+                    </div>
+                </div>
+                {# END: Проекты в которых пользователь БИЗНЕС АНАЛИТИК #}
+
+                {# START: Проекты в которых пользователь CИСТЕМНЫЙ АНАЛИТИК #}
+                <div class="card" id="system-analyst-projects">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <h3 class="custom-h text-center"><i class="fa fa-address-card-o" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'System Analyst' %}</span></h3>
+                        </div>
+                    </div>
+                    <div class="card-block endless_page_template">
+                        {% include "home/system_analyst_projects.html" %}
+                    </div>
+                </div>
+                {# END: Проекты в которых пользователь CИСТЕМНЫЙ АНАЛИТИК #}
+            {% else %}
+                {# START: Текущие проекты #}
+                <div class="card" id="unauthorized-open-projects">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <h3 class="custom-h text-center"><i class="fa fa-tasks" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'Current projects' %}</span></h3>
+                        </div>
+                    </div>
+                    <div class="card-block endless_page_template">
+                        {% include "home/unauthorized_open_projects.html" %}
+                    </div>
+                </div>
+                {# END: Текущие проекты #}
+
+                {# START: Архивные проекты #}
+                <div class="card" id="unauthorized-close-projects">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <h3 class="custom-h text-center"><i class="fa fa-archive" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'Archive projects' %}</span></h3>
+                        </div>
+                    </div>
+                    <div class="card-block endless_page_template">
+                        {% include "home/unauthorized_close_projects.html" %}
+                    </div>
+                </div>
+                {# END: Архивные проекты #}
+            {% endif %}
+        </div>
+        {# END: CONTAINER #}
+    </div>
+{% endblock %}
+
+{% block script %}
+    {# django-endless-pagination JS settings #}
+    <script src="{% static 'el-pagination/js/el-pagination.js' %}"></script>
+    <script>$.endlessPaginate();</script>
+{% endblock %}

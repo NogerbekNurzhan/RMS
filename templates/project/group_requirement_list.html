@@ -1,0 +1,73 @@
+{% load i18n static %}
+{% if group_requirement_type.symbol == "FA" or group_requirement_type.symbol == "DF"%}
+    <table class="table table-bordered" id="group-requirement-table">
+        <thead>
+            <tr>
+                <th class="text-center text-uppercase" style="width: 20%">{% trans 'Symbol' %}</th>
+                <th class="text-center text-uppercase" style="width: 70%">{% trans 'Task' %}</th>
+                <th class="text-center" style="width: 10%"><i class="fa fa-cog" aria-hidden="true"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% include 'project/group_requirement_tbody.html' %}
+        </tbody>
+    </table>
+{% else %}
+    <div class="list-group" id="group-requirement-list">
+    {% for group_requirement in group_requirements %}
+        <div class="list-group-item flex-column align-items-start custom-list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <a class="btn btn-sm btn-danger" href="{% url 'project:group_requirement_reversions' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code %}">
+                    <i class="fa fa-history" aria-hidden="true"></i>&#9;<span>{% trans 'Reversions' %}</span>
+                </a>
+                <a class="btn btn-sm btn-info" href="{% url 'project:group_requirement_detail' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code %}">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>&#9;<span>{% trans 'Requirements' %}</span>
+                </a>
+            </div>
+
+            <div class="d-flex w-100 justify-content-center">
+                <h5 class="mb-1">{{ group_requirement.name }}</h5>
+            </div>
+
+            <div class="d-flex w-100 justify-content-center">
+                <small class="text-uppercase">{% trans 'Symbol' %}:&#9;{{ group_requirement.symbol }}</small>
+            </div>
+
+            <div class="d-flex w-100 justify-content-end custom-d-flex">
+                {% if request_user_is_system_analyst %}
+                    <div class="mr-auto">
+                        <a class="btn btn-sm btn-warning" id="js-edit-group-requirement-button" data-url="{% url 'project:group_requirement_edit' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code %}">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>&#9;<span>{% trans 'Edit' %}</span>
+                        </a>
+                    </div>
+                {% endif %}
+                <div class="group-requirement-comment-number">
+                    {% include 'project/group_requirement_comment_number.html' %}
+                </div>
+                <div>
+                    <a class="btn btn-sm btn-primary" data-toggle="collapse" href="#collapse-group-requirement-{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse-group-requirement-{{ forloop.counter }}">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i>&#9;<span>{% trans 'Comments' %}</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse w-100 comment-list-block" id="collapse-group-requirement-{{ forloop.counter }}">
+                <div class="list-group custom-list-group">
+                    <div class="list-group-item bg-faded">
+                        {% include 'project/group_requirement_comment_form.html' %}
+                    </div>
+                    <div class="group-requirement-comments">
+                        {% include 'project/group_requirement_comment_list.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="list-group-item flex-column align-items-start custom-no-top-radius">
+            <div class="d-flex w-100 justify-content-center">
+                <h6 class="mb-1 custom-h"><i class="fa fa-info-circle" aria-hidden="true"></i>&#9;{% trans 'NO INFORMATION' %}</h6>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endif %}

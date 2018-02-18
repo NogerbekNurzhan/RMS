@@ -1,0 +1,17 @@
+{% load i18n widget_tweaks %}
+
+<form method="post" class="w-100 requirement-comment-form" action="{% url 'project:requirement_comment_add' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}">
+    {% csrf_token %}
+    <div class="row custom-row bg-faded">
+        <div class="col-10">
+            {% for field in requirement_comment_form %}
+                <div class="form-group comment-form-group">
+                    {% render_field field class="form-control" %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        </div>
+    </div>
+</form>

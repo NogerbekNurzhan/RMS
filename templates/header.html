@@ -1,0 +1,62 @@
+{% load i18n %}
+
+<nav class="navbar navbar-toggleable navbar-inverse bg-primary">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <h1 class="navbar-brand">{% trans "Requirement Management System" %}</h1>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mr-auto">
+            {% url 'home' as home %}
+            {% if request.path == home %}
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "dashboard" %}">{% trans "Dashboard" %}</a>
+                    </li>
+                {% endif %}
+            {% endif %}
+
+            {% url "dashboard" as dashboard %}
+            {% if request.path == dashboard %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "home" %}"><i class="fa fa-home" aria-hidden="true"></i>{% trans "Home" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i>{% trans "Profile" %}</a>
+                </li>
+            {% endif %}
+        </ul>
+
+        <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "auth_logout" %}"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;{% trans "Sign Out" %}</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "auth_login" %}"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;{% trans "Sign In" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "registration" %}"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;{% trans "Sign Up" %}</a>
+                </li>
+            {% endif %}
+
+             <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="dropdownLanguageMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                    {% trans "Languages" %}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLanguageMenu">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <a class="dropdown-item" href="/{{ language.code }}/">{{ language.name_local }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </ul>
+    </div>
+</nav>

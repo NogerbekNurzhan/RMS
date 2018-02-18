@@ -1,0 +1,26 @@
+{% load i18n %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>{{ site.name }} {% trans "Account" %}</title>
+</head>
+
+<body>
+<p>
+    {% blocktrans with site_name=site.name %}
+        The following user ({{ user }}) has asked to register an account at {{ site_name }}.
+    {% endblocktrans %}
+</p>
+<p>
+    {% blocktrans %}To approve this, please{% endblocktrans %}
+    <a href="http://127.0.0.1:8000{% url 'admin_approval' profile_id %}"> {% trans "Click Here" %}</a>.
+</p>
+<p>
+    {% blocktrans with site_name=site.name %}
+        Sincerely, {{ site_name }} Management
+    {% endblocktrans %}
+</p>
+</body>
+
+</html>

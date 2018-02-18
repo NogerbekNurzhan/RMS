@@ -1,0 +1,226 @@
+{% load i18n %}
+{% if group_requirement_type.symbol == "FA" %}
+    <div class="list-group" id="requirement-list">
+    {% for requirement in requirements %}
+        <div class="list-group-item flex-column align-items-start custom-list-group-item">
+
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{% trans 'Function' %}&#9;-&#9;{% for function in requirement.function.all %}{{ function }}{% endfor %}</h5>
+                <small><span class="text-uppercase">{% trans 'Symbol' %}:&#9;{{ requirement.symbol }}</span></small>
+            </div>
+
+            <p class="mb-1">{% trans 'Users' %}:&#9;{% for user_characteristic in requirement.user_characteristic.all %}{{ user_characteristic }}{% if forloop.last %}.{% else %},&#9;{% endif %}{% endfor %}</p>
+
+
+            <div class="d-flex w-100 justify-content-end custom-d-flex">
+                    <div class="mr-auto">
+                        {% if request_user_is_system_analyst %}
+                            <a class="btn btn-sm btn-warning" id="js-edit-fa-requirement-button" data-url="{% url 'project:fa_requirement_edit' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>&#9;<span>{% trans 'Edit' %}</span>
+                            </a>
+                        {% endif %}
+                        <a class="btn btn-sm btn-danger" href="{% url 'project:requirement_reversions' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}" style="margin-left: 10px">
+                            <i class="fa fa-history" aria-hidden="true"></i>&#9;<span>{% trans 'Reversions' %}</span>
+                        </a>
+                        <a class="btn btn-sm btn-info" href="{% url 'project:requirement_detail' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}" style="margin-left: 10px">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i>&#9;<span>{% trans 'Specification' %}</span>
+                        </a>
+                    </div>
+                <div class="requirement-comment-number">
+                    {% include 'project/requirement_comment_number.html' %}
+                </div>
+                <div>
+                    <a class="btn btn-sm btn-primary" data-toggle="collapse" href="#collapse-requirement-{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse-requirement-{{ forloop.counter }}">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i>&#9;<span>{% trans 'Comments' %}</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse w-100 comment-list-block" id="collapse-requirement-{{ forloop.counter }}">
+                <div class="list-group custom-list-group">
+                    <div class="list-group-item bg-faded">
+                        {% include 'project/requirement_comment_form.html' %}
+                    </div>
+                    <div class="requirement-comments">
+                        {% include 'project/requirement_comment_list.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="list-group-item flex-column align-items-start custom-no-top-radius">
+            <div class="d-flex w-100 justify-content-center">
+                <h6 class="mb-1 custom-h"><i class="fa fa-info-circle" aria-hidden="true"></i>&#9;{% trans 'NO INFORMATION' %}</h6>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% elif group_requirement_type.symbol == "V" %}
+    <div class="list-group" id="requirement-list">
+    {% for requirement in requirements %}
+        <div class="list-group-item flex-column align-items-start custom-list-group-item">
+
+            <h5 class="mb-1"><span class="text-uppercase">{% trans 'Symbol' %}:&#9;{{ requirement.symbol }}</span></h5>
+
+            <p class="mb-1">{% trans 'Description' %}:&#9;{{ requirement.description }}</p>
+
+            <small>{% trans 'Users' %}:&#9;{% for user_characteristic in requirement.user_characteristic.all %}{{ user_characteristic }}{% if forloop.last %}.{% else %},&#9;{% endif %}{% endfor %}</small>
+
+            <div class="d-flex w-100 justify-content-end custom-d-flex">
+                    <div class="mr-auto">
+                        {% if request_user_is_system_analyst %}
+                            <a class="btn btn-sm btn-warning" id="js-edit-v-requirement-button" data-url="{% url 'project:v_requirement_edit' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>&#9;<span>{% trans 'Edit' %}</span>
+                            </a>
+                        {% endif %}
+                        <a class="btn btn-sm btn-danger" href="{% url 'project:requirement_reversions' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}" style="margin-left: 10px">
+                            <i class="fa fa-history" aria-hidden="true"></i>&#9;<span>{% trans 'Reversions' %}</span>
+                        </a>
+                        <a class="btn btn-sm btn-info" href="{% url 'project:requirement_detail' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}" style="margin-left: 10px">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i>&#9;<span>{% trans 'Specification' %}</span>
+                        </a>
+                    </div>
+                <div class="requirement-comment-number">
+                    {% include 'project/requirement_comment_number.html' %}
+                </div>
+                <div>
+                    <a class="btn btn-sm btn-primary" data-toggle="collapse" href="#collapse-requirement-{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse-requirement-{{ forloop.counter }}">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i>&#9;<span>{% trans 'Comments' %}</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse w-100 comment-list-block" id="collapse-requirement-{{ forloop.counter }}">
+                <div class="list-group custom-list-group">
+                    <div class="list-group-item bg-faded">
+                        {% include 'project/requirement_comment_form.html' %}
+                    </div>
+                    <div class="requirement-comments">
+                        {% include 'project/requirement_comment_list.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="list-group-item flex-column align-items-start custom-no-top-radius">
+            <div class="d-flex w-100 justify-content-center">
+                <h6 class="mb-1 custom-h"><i class="fa fa-info-circle" aria-hidden="true"></i>&#9;{% trans 'NO INFORMATION' %}</h6>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% elif group_requirement_type.symbol == "DF" %}
+    <div class="list-group" id="requirement-list">
+    {% for requirement in requirements %}
+        <div class="list-group-item flex-column align-items-start custom-list-group-item">
+
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{% trans 'Function' %}&#9;-&#9;{% for function in requirement.function.all %}{{ function }}{% endfor %}</h5>
+                <small><span class="text-uppercase">{% trans 'Symbol' %}:&#9;{{ requirement.symbol }}</span></small>
+            </div>
+
+            <div class="d-flex w-100 justify-content-end custom-d-flex">
+                    <div class="mr-auto">
+                        {% if request_user_is_system_analyst %}
+                            <a class="btn btn-sm btn-warning" id="js-edit-df-requirement-button" data-url="{% url 'project:df_requirement_edit' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>&#9;<span>{% trans 'Edit' %}</span>
+                            </a>
+                        {% endif %}
+                        <a class="btn btn-sm btn-danger" href="{% url 'project:requirement_reversions' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}">
+                            <i class="fa fa-history" aria-hidden="true"></i>&#9;<span>{% trans 'Reversions' %}</span>
+                        </a>
+                    </div>
+                <div class="requirement-comment-number">
+                    {% include 'project/requirement_comment_number.html' %}
+                </div>
+                <div>
+                    <a class="btn btn-sm btn-primary" data-toggle="collapse" href="#collapse-requirement-{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse-requirement-{{ forloop.counter }}">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i>&#9;<span>{% trans 'Comments' %}</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse w-100 comment-list-block" id="collapse-requirement-{{ forloop.counter }}">
+                <div class="list-group custom-list-group">
+                    <div class="list-group-item bg-faded">
+                        {% include 'project/requirement_comment_form.html' %}
+                    </div>
+                    <div class="requirement-comments">
+                        {% include 'project/requirement_comment_list.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="list-group-item flex-column align-items-start custom-no-top-radius">
+            <div class="d-flex w-100 justify-content-center">
+                <h6 class="mb-1 custom-h"><i class="fa fa-info-circle" aria-hidden="true"></i>&#9;{% trans 'NO INFORMATION' %}</h6>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <div class="list-group" id="requirement-list">
+    {% for requirement in requirements %}
+        <div class="list-group-item flex-column align-items-start custom-list-group-item">
+
+            <div class="d-flex w-100 justify-content-end">
+                <a class="btn btn-sm btn-danger" href="{% url 'project:requirement_reversions' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}">
+                    <i class="fa fa-history" aria-hidden="true"></i>&#9;<span>{% trans 'Reversions' %}</span>
+                </a>
+
+                <a class="btn btn-sm btn-info" href="{% url 'project:requirement_detail' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}" style="margin-left: 10px">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>&#9;<span>{% trans 'Specification' %}</span>
+                </a>
+            </div>
+
+            <div class="d-flex w-100 justify-content-center">
+                <h5 class="mb-1 text-uppercase"><strong>{% trans 'Symbol' %}:&#9;{{ requirement.symbol }}</strong></h5>
+            </div>
+
+            <div class="d-flex w-100 justify-content-start">
+                <p class="mb-2 p-justify"><strong>{% trans 'Description' %}</strong>:&#9;{{ requirement.description }}</p>
+            </div>
+
+            <div class="d-flex w-100 justify-content-start">
+                <p class="mb-1 p-justify"><strong>{% trans 'Functions' %}</strong>:&#9;{% for function in requirement.function.all %}{{ function }}{% if forloop.last %}{% else %};&#9;{% endif %}{% endfor %}</p>
+            </div>
+
+            <div class="d-flex w-100 justify-content-end custom-d-flex">
+                {% if request_user_is_system_analyst %}
+                    <div class="mr-auto">
+                        <a class="btn btn-sm btn-warning" id="js-edit-requirement-button" data-url="{% url 'project:requirement_edit' project_code=project.code group_requirement_type_code=group_requirement_type.code group_requirement_code=group_requirement.code requirement_code=requirement.code %}">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>&#9;<span>{% trans 'Edit' %}</span>
+                        </a>
+                    </div>
+                {% endif %}
+                <div class="requirement-comment-number">
+                    {% include 'project/requirement_comment_number.html' %}
+                </div>
+                <div>
+                    <a class="btn btn-sm btn-primary" data-toggle="collapse" href="#collapse-requirement-{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse-requirement-{{ forloop.counter }}">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i>&#9;<span>{% trans 'Comments' %}</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse w-100 comment-list-block" id="collapse-requirement-{{ forloop.counter }}">
+                <div class="list-group custom-list-group">
+                    <div class="list-group-item bg-faded">
+                        {% include 'project/requirement_comment_form.html' %}
+                    </div>
+                    <div class="requirement-comments">
+                        {% include 'project/requirement_comment_list.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="list-group-item flex-column align-items-start custom-no-top-radius">
+            <div class="d-flex w-100 justify-content-center">
+                <h6 class="mb-1 custom-h"><i class="fa fa-info-circle" aria-hidden="true"></i>&#9;{% trans 'NO INFORMATION' %}</h6>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endif %}

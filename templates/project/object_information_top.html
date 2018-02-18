@@ -1,0 +1,12 @@
+{% load i18n %}
+{% if request_user_is_business_analyst %}
+    {% if not object_information_is_exist %}
+        <button class="btn btn-primary" id="object-information-add-button" data-url="{% url 'project:object_information_add' project_code=project.code %}">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </button>
+    {% endif %}
+{% endif %}
+<h3 class="custom-h"><i class="fa fa-info" aria-hidden="true"></i>&#9;<span class="text-uppercase">{% trans 'General information about object' %}</span></h3>
+<button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapse-object-information" aria-expanded="false" aria-controls="collapse-object-information">
+    <i class="fa fa-eye" aria-hidden="true"></i>
+</button>

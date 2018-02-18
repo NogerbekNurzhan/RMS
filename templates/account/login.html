@@ -1,0 +1,159 @@
+{% extends "index.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "LOGIN" %}{% endblock %}
+
+{% block class %}class="login"{% endblock %}
+
+{% block content %}
+    <!--START: CONTAINER-FLUID-->
+    <div class="container-fluid">
+        <!--START: LOGIN LAYOUT-->
+        <div class="login-layout">
+            <div class="row">
+                <!--START: LEFT SIDE-->
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 left-side">
+                    <!--START: FIRST ROW-->
+                    <div class="row">
+                        <!--START: HEADER-->
+                        <header>
+                            <i class="fa fa-rocket"></i>
+                            <h1>{% trans 'LOGIN' %}</h1>
+                            <p>{% trans 'It`s free and takes less than 15 seconds.' %}</p>
+                        </header>
+                        <!--END: HEADER-->
+                    </div>
+                    <!--END: FIRST ROW-->
+
+                    <!--START: SECOND ROW-->
+                    <div class="row">
+                        <form  method="post" action="" class="form-layout" novalidate>
+                            <fieldset>
+                                <!--START: USERNAME OR EMAIL-->
+                                <section>
+                                    <label class="label">{% trans 'Username or Email'%}</label>
+                                    <label class="input {% if form.username.errors %}state-error{% endif %}">
+                                        <i class="icon-prepend fa fa-user"></i>
+                                        {{ form.username }}
+                                        {% for error in form.username.errors %}
+                                            <div class="note note-error">{{ error|escape }}</div>
+                                        {% endfor %}
+                                    </label>
+                                </section>
+                                <!--END: USERNAME OR EMAIL-->
+
+                                <!--START: PASSWORD-->
+                                <section>
+                                    <label class="label">{% trans 'Password'%}</label>
+                                    <label class="input {% if form.password.errors %}state-error{% endif %}">
+                                        <i class="icon-prepend fa fa-lock"></i>
+                                        {{ form.password }}
+                                        {% for error in form.password.errors %}
+                                            <div class="note note-error">{{ error|escape }}</div>
+                                        {% endfor %}
+                                    </label>
+                                    <div class="note"><a href="{% url 'auth_password_reset' %}">{% trans 'Forgot password?'%}</a></div>
+                                </section>
+                                <!--END: PASSWORD-->
+
+                                <!--START: INFORMATION PART-->
+                                <section>
+                                    <div class="alert alert-info text-center" role="alert">
+                                        {% trans "Don't have an account?" %}<br><strong><a href="{% url 'registration' %}">{% trans  "SIGN UP" %}</a></strong>
+                                    </div>
+
+                                    {% for x in form.errors %}
+                                        {% if "__all__" in x %}
+                                            <div class="alert alert-danger text-center" role="alert">
+                                                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;&nbsp;{% trans 'Введенные вами данные недействительны.' %}<br>{% trans 'Проверьте их еще раз.' %}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </section>
+                                <!--END: INFORMATION PART-->
+
+                                <!--START: SUBMIT BUTTON PART-->
+                                <section>
+                                    <button type="submit" class="btn submit-button">{% trans 'LOGIN'%}</button>
+                                </section>
+                                <!--END: SUBMIT BUTTON PART-->
+                            </fieldset>
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ next }}"/> {# Скрытое поле #}
+                        </form>
+                    </div>
+                    <!--END: SECOND ROW-->
+                </div>
+                <!--END: LEFT SIDE-->
+
+                <!--START: RIGHT SIDE-->
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 right-side">
+                    <!--START: RIGHT-TITLE-->
+					<div class="row right-title">
+						<h1>{% trans 'Connect with your social network account' %}</h1>
+					</div>
+					<!--END: RIGHT-TITLE-->
+
+                    <div class="row parent">
+                        <!--START: SOCIAL NETWORK LAYOUT-->
+					<div class="social-network-layout">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-12">
+                                <a class="social-button text-center" href="{% url 'social:begin' 'facebook' %}">
+                                    <span>Facebook</span>
+                                </a>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-12">
+                                <a class="social-button text-center" href="{% url 'social:begin' 'github' %}">
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-12">
+                                <a class="social-button text-center" href="{% url 'social:begin' 'vk-oauth2' %}">
+                                    <span>Вконтакте</span>
+                                </a>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-12">
+                                <a class="social-button text-center" href="{% url "social:begin" "google-oauth2" %}">
+                                    <span>Google</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END: SOCIAL NETWORK LAYOUT-->
+                    </div>
+                </div>
+                <!--END: RIGHT SIDE-->
+            </div>
+        </div>
+        <!--END: LOGIN LAYOUT-->
+    </div>
+    <!--END: CONTAINER-FLUID-->
+{% endblock %}
+
+
+{% comment %}
+**account/login.html**
+
+It's your responsibility to provide the login form in a template called account/login.html by default.
+This template gets passed four template context variables:
+
+``form``
+    A Form object representing the login form.
+    See the forms documentation for more on Form objects.
+
+``next``
+    The URL to redirect to after successful login. This may contain a query string, too.
+
+``site``
+    The current Site, according to the SITE_ID setting.
+    If you don't have the site framework installed, this will be set to an instance of RequestSite, which derives the site name and domain from the current HttpRequest.
+
+``site_name``
+    An alias for site.name.
+    If you don't have the site framework installed, this will be set to the value of request.META['SERVER_NAME'].
+    For more on sites, see The "sites" framework.
+{% endcomment %}

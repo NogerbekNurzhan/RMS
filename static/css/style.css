@@ -1,0 +1,1291 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=cyrillic,cyrillic-ext,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&subset=cyrillic,cyrillic-ext,latin-ext);
+
+.registration{
+	background: #72D1D3 url('../images/background-1.png');
+}
+.login{
+	background: #CEB28A url('../images/background-2.png');
+}
+
+/*
+	Перенастройка стандартных значений padding и margin установленных в Bootstrap 4
+*/
+.registration .container-fluid .row,
+.login .container-fluid .row{
+	margin: 0;
+	padding: 0;
+}
+
+.registration-layout{
+		min-width: 450px;
+		max-width: 900px;
+		/*
+			Horizontal (margin-left, margin-right): auto,
+			Vertical (margin-top, margin-bottom): 50px
+		*/
+		margin: 50px auto;
+		background-color: white;
+		border-radius: 15px;
+		box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+}
+
+.registration-layout .header-layout{
+	/*
+		Для того, чтобы блок content не скрывал тень установленную в блоке header необходимо применить следующие 2 свойства
+	*/
+	position:relative;
+    z-index:2;
+}
+
+.registration-layout .header-layout header{
+	background: #2196F3;
+	width: 100%;
+	/*
+		Horizontal (padding-left, padding-right): auto,
+		Vertical (padding-top, padding-bottom): 50px
+	*/
+	padding: 30px 0 0 0;
+	text-align:center;
+	border-bottom: 5px solid rgba(0,0,0,.1);
+	box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
+	/*
+		Элементы внутри блока header наследуют установленное значение цвета
+	*/
+    color: white;
+    /*
+		border-radius:(1, 2, 3, 4)
+		1 - border-top-left-radius
+		2 - border-top-right-radius
+		3 - border-bottom-right-radius
+		4 - border-bottom-left-radius
+    */
+    border-radius: 15px 15px 0px 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.registration-layout .header-layout .fa{
+	display: block;
+}
+
+/*
+	START: FORM
+*/
+
+/*
+	START: Default CSS Styles
+*/
+.form-layout{
+	font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
+	width: 100%;
+}
+
+.form-layout fieldset {
+	padding: 5px 20px 20px 20px;
+}
+
+.form-layout fieldset + fieldset {
+	/*
+		Между элементами fieldset появляется линия, давая эффект разделителя
+	*/
+	border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.form-layout section {
+	margin-bottom: 20px;
+}
+
+/* Ссылки - Link */
+.form-layout a {
+	color: #2da5da;
+}
+
+.form-layout .label {
+	display: block;
+	margin-bottom: 6px;
+	line-height: 19px;
+}
+
+/*
+	В случаи, если надпись (label) стоит на одном уровне с input выравнить его по центру высоты input с помощью отступа
+*/
+.form-layout .label.col {
+	margin: 0;
+	padding-top: 10px;
+}
+
+/* Запись под элементом input */
+.form-layout .note {
+	margin-top: 6px;
+	padding: 0 1px;
+	font-size: 11px;
+	line-height: 15px;
+	color: #999;
+}
+
+.form-layout .input,
+.form-layout .textarea,
+.form-layout .radio,
+.form-layout .checkbox,
+.form-layout .toggle{
+	position: relative;
+	display: block;
+}
+
+.form-layout .input input,
+.form-layout .textarea textarea {
+	display: block;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	height: 40px;
+	padding: 8px 10px;
+	outline: none;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 0;
+	background: #fff;
+	font: 15px/19px 'Open Sans', Helvetica, Arial, sans-serif;
+	color: #404040;
+	appearance: normal;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+/*
+	END: Default CSS Styles
+*/
+
+/*
+	START: Textarea
+*/
+.form-layout .textarea textarea {
+	height: auto;
+	resize: none;
+}
+
+.form-layout .textarea-resizable textarea {
+	resize: vertical;
+}
+
+.form-layout .textarea-expandable textarea {
+	height: 39px;
+}
+
+.form-layout .textarea-expandable textarea:focus {
+	height: auto;
+}
+/*
+	END: Textarea
+*/
+
+/*
+	START: Radio and Checkbox
+*/
+.form-layout .radio,
+.form-layout .checkbox {
+	margin-bottom: 4px;
+	padding-left: 27px;
+	font-size: 15px;
+	line-height: 27px;
+	color: #404040;
+	cursor: pointer;
+}
+
+.form-layout .radio:last-child,
+.form-layout .checkbox:last-child {
+	margin-bottom: 0;
+}
+
+.form-layout .radio input,
+.form-layout .checkbox input {
+	position: absolute;
+	left: -9999px;
+}
+
+.form-layout .radio i,
+.form-layout .checkbox i {
+	position: absolute;
+	top: 5px;
+	left: 0;
+	display: block;
+	width: 13px;
+	height: 13px;
+	outline: none;
+	border-width: 2px;
+	border-style: solid;
+	background: #fff;
+}
+
+.form-layout .radio i {
+	border-radius: 50%;
+}
+
+.form-layout .radio input + i:after,
+.form-layout .checkbox input + i:after {
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.1s;
+	-o-transition: opacity 0.1s;
+	-ms-transition: opacity 0.1s;
+	-moz-transition: opacity 0.1s;
+	-webkit-transition: opacity 0.1s;
+}
+
+.form-layout .radio input + i:after {
+	content: '';
+	top: 4px;
+	left: 4px;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+}
+
+.form-layout .checkbox input + i:after {
+	content: '\f00c';
+	top: -1px;
+	left: -1px;
+	width: 15px;
+	height: 15px;
+	font: normal 12px/16px FontAwesome;
+	text-align: center;
+}
+
+.form-layout .radio input:checked + i:after,
+.form-layout .checkbox input:checked + i:after {
+	opacity: 1;
+}
+
+.form-layout .inline-group {
+	margin: 0 -30px -4px 0;
+}
+
+.form-layout .inline-group:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.form-layout .inline-group .radio,
+.form-layout .inline-group .checkbox {
+	float: left;
+	margin-right: 30px;
+}
+
+.form-layout .inline-group .radio:last-child,
+.form-layout .inline-group .checkbox:last-child {
+	margin-bottom: 4px;
+}
+/*
+	END: Radio and Checkbox
+*/
+
+/*
+	START Toggle
+*/
+.form-layout .toggle {
+	margin-bottom: 4px;
+	padding-right: 61px;
+	font-size: 15px;
+	line-height: 27px;
+	color: #404040;
+	cursor: pointer;
+}
+
+.form-layout .toggle:last-child {
+	margin-bottom: 0;
+}
+
+.form-layout .toggle input {
+	position: absolute;
+	left: -9999px;
+}
+
+.form-layout .toggle i {
+	content: '';
+	position: absolute;
+	top: 4px;
+	right: 0;
+	display: block;
+	width: 49px;
+	height: 17px;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 12px;
+	background: #fff;
+}
+
+.form-layout .toggle i:after {
+	content: 'OFF';
+	position: absolute;
+	top: 2px;
+	right: 8px;
+	left: 8px;
+	font-style: normal;
+	font-size: 9px;
+	line-height: 13px;
+	font-weight: 700;
+	text-align: left;
+	color: #5f5f5f;
+}
+
+.form-layout .toggle i:before {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	top: 4px;
+	right: 4px;
+	display: block;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	opacity: 1;
+	transition: right 0.2s;
+	-o-transition: right 0.2s;
+	-ms-transition: right 0.2s;
+	-moz-transition: right 0.2s;
+	-webkit-transition: right 0.2s;
+}
+
+.form-layout .toggle input:checked + i:after {
+	content: 'ON';
+	text-align: right;
+}
+
+.form-layout .toggle input:checked + i:before {
+	right: 36px;
+}
+/*
+	END Toggle
+*/
+
+/*
+	START: Icons append and prepend
+*/
+.form-layout .icon-append,
+.form-layout .icon-prepend {
+	position: absolute;
+	top: 5px;
+	width: 29px;
+	height: 29px;
+	font-size: 15px;
+	line-height: 29px;
+	text-align: center;
+}
+.form-layout .icon-append {
+	right: 5px;
+	padding-left: 3px;
+	border-left-width: 1px;
+	border-left-style: solid;
+}
+.form-layout .icon-prepend {
+	left: 5px;
+	padding-right: 3px;
+	border-right-width: 1px;
+	border-right-style: solid;
+}
+.form-layout .input .icon-prepend + input,
+.form-layout .textarea .icon-prepend + textarea {
+	padding-left: 46px;
+}
+.form-layout .input .icon-append + input,
+.form-layout .textarea .icon-append + textarea {
+	padding-right: 46px;
+}
+.form-layout .input .icon-prepend + .icon-append + input,
+.form-layout .textarea .icon-prepend + .icon-append + textarea {
+	padding-left: 46px;
+}
+
+/*
+	END: Icons append and prepend
+*/
+
+/*
+	START: Grid system of the form
+*/
+.form-layout .row {
+	margin: 0 -15px;
+}
+
+.form-layout .row:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.form-layout .col {
+	float: left;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	margin-bottom: 5px;
+}
+
+.form-layout .col-1 {
+	width: 8.33%;
+}
+
+.form-layout .col-2 {
+	width: 16.66%;
+}
+
+.form-layout .col-3 {
+	width: 25%;
+}
+
+.form-layout .col-4 {
+	width: 33.33%;
+}
+
+.form-layout .col-5 {
+	width: 41.66%;
+}
+
+.form-layout .col-6 {
+	width: 50%;
+}
+
+.form-layout .col-8 {
+	width: 66.67%;
+}
+
+.form-layout .col-9 {
+	width: 75%;
+}
+
+.form-layout .col-10 {
+	width: 83.33%;
+}
+/*
+	END: Grid system of the form
+*/
+
+/*
+	START: Normal State
+*/
+.form-layout .input input,
+.form-layout .textarea textarea,
+.form-layout .radio i,
+.form-layout .checkbox i,
+.form-layout .toggle i,
+.form-layout .icon-append,
+.form-layout .icon-prepend {
+	border-color: #e5e5e5;
+	transition: border-color 0.3s;
+	-o-transition: border-color 0.3s;
+	-ms-transition: border-color 0.3s;
+	-moz-transition: border-color 0.3s;
+	-webkit-transition: border-color 0.3s;
+}
+.form-layout .toggle i:before {
+	background-color: #2da5da;
+}
+.form-layout .icon-append,
+.form-layout .icon-prepend {
+	color: #CCC;
+}
+/*
+	END: Normal State
+*/
+
+/*
+	START: Hover State
+*/
+.form-layout .input:hover input,
+.form-layout .textarea:hover textarea,
+.form-layout .radio:hover i,
+.form-layout .checkbox:hover i,
+.form-layout .toggle:hover i {
+	border-color: #8dc9e5;
+}
+/*
+	END: Hover State
+*/
+
+
+/*
+	START: Focus State
+*/
+.form-layout .input input:focus,
+.form-layout .textarea textarea:focus,
+.form-layout .radio input:focus + i,
+.form-layout .checkbox input:focus + i,
+.form-layout .toggle input:focus + i {
+	border-color: #2da5da;
+}
+/*
+	END: Focus State
+*/
+
+
+/*
+	START: Checked State
+*/
+.form-layout .radio input + i:after {
+	background-color: #2da5da;
+}
+.form-layout .checkbox input + i:after {
+	color: #2da5da;
+}
+.form-layout .radio input:checked + i,
+.form-layout .checkbox input:checked + i,
+.form-layout .toggle input:checked + i {
+	border-color: #2da5da;
+}
+/*
+	END: Checked State
+*/
+
+
+/*
+	START: Error State
+*/
+.form-layout .state-error input,
+.form-layout .state-error textarea,
+.form-layout .radio .state-error i,
+.form-layout .checkbox .state-error i,
+.form-layout .toggle .state-error i {
+	background: #fff0f0;
+}
+
+.form-layout .state-error input:hover,
+.form-layout .state-error textarea:hover,
+.form-layout .radio .state-error  input:hover + i,
+.form-layout .checkbox .state-error  input:hover + i,
+.form-layout .toggle .state-error  input:hover + i {
+	border-color: #dc9596;
+}
+
+.form-layout .state-error input:focus,
+.form-layout .state-error textarea:focus,
+.form-layout .radio .state-error input:focus + i,
+.form-layout .checkbox .state-error  input:focus + i,
+.form-layout .toggle .state-error  input:focus + i {
+	border-color: #E57373;
+}
+
+.form-layout .toggle.state-error input:checked + i {
+	background: #fff0f0;
+}
+
+.form-layout .note-error {
+	color: #ee9393;
+}
+/*
+	END: Error State
+*/
+
+
+/*
+	START: Success State
+*/
+.form-layout .state-success input,
+.form-layout .state-success textarea,
+.form-layout .radio.state-success i,
+.form-layout .checkbox.state-success i,
+.form-layout .toggle.state-success i {
+	background: #f0fff0;
+}
+
+.form-layout .toggle.state-success input:checked + i {
+	background: #f0fff0;
+}
+
+.form-layout .note-success {
+	color: #6fb679;
+}
+/*
+	END: Success State
+*/
+
+/*
+	START: Disabled state
+*/
+.form-layout .input.state-disabled input,
+.form-layout .textarea.state-disabled,
+.form-layout .radio.state-disabled,
+.form-layout .checkbox.state-disabled,
+.form-layout .toggle.state-disabled,
+.form-layout .button.state-disabled {
+	cursor: default;
+	opacity: 0.5;
+}
+
+.form-layout .input.state-disabled:hover input,
+.form-layout .textarea.state-disabled:hover textarea,
+.form-layout .radio.state-disabled:hover i,
+.form-layout .checkbox.state-disabled:hover i,
+.form-layout .toggle.state-disabled:hover i {
+	border-color: #e5e5e5;
+}
+/*
+	END: Disabled state
+*/
+
+/*
+	START: Кнопка SUBMIT
+*/
+.submit-button {
+	display: block;
+	width: 100%;
+	line-height: 35px;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+	border-radius: 5px;
+	background: #F44336;
+	margin: 10px auto;
+	color: white;
+	text-decoration: none;
+	-webkit-appearance: none;
+}
+.submit-button:hover,
+.submit-button:focus {
+	background: #FF5252;
+	opacity: 0.75;
+  	cursor: pointer;
+	text-decoration: none;
+}
+.submit-button:active {
+    background: #E53935;
+    opacity: 1;
+  	box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1) inset;
+}
+/*
+	END: Кнопка SUBMIT
+*/
+
+/*
+	END: FORM
+*/
+.registration-layout .content-layout .right-side{
+		background: #7986CB;
+		border-bottom-right-radius: 15px;
+		text-align: center;
+}
+
+/*
+	START: Кнопки социальный сетей
+*/
+.social-button{
+	/*
+		Cвойство inherit сообщает, что необходимо наследовать значение свойства у родительского элемента.
+		Естественно, результат будет заметен только в том случае, если у родителя указанное свойство установлено.
+	*/
+	width: 100%;
+	font-family: inherit;
+	font-size: inherit;
+	background: none;
+	cursor: pointer;
+	padding: 20px 80px;
+	display: inline-block;
+	margin: 10px auto;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	text-align: center;
+}
+.social-button:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.social-button:before {
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+}
+.social-button {
+	border: 3px solid #fff;
+	color: #fff;
+}
+.social-button {
+	overflow: hidden;
+}
+
+.social-button:after {
+	width: 100%;
+	height: 0;
+	top: 50%;
+	left: 50%;
+	background: #fff;
+	opacity: 0;
+	-webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+	-moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+	-ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+	transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
+.social-button:hover,
+.social-button:active {
+	color: #7986CB;
+}
+
+.social-button:hover:after {
+	height: 250%;
+	opacity: 1;
+}
+
+.social-button:active:after {
+	height: 400%;
+	opacity: 1;
+}
+
+a.social-button{
+	text-decoration: none; /* Убрать подчеркивания ссылки в кнопках социальных сетей */
+}
+/*
+	END: Кнопки социальный сетей
+*/
+
+
+/*
+	START: Заголовки видов регистрации
+*/
+.registration-layout .content-layout .left-side .title h1,
+.registration-layout .content-layout .right-side .title h1{
+	font-size: 17px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 25px 0 20px 0;
+}
+
+.registration-layout .content-layout .right-side .right-title h1{
+	color: white;
+}
+
+.registration-layout .content-layout .left-side .left-title h1{
+	color: #7986CB;
+}
+/*
+	END: Заголовки видов регистрации
+*/
+
+
+/*
+	Ширина экрана мобильных устройств
+*/
+@media(max-width: 767px){
+	.registration-layout .header-layout .fa{
+		font-size:100px;
+	}
+
+	.form-layout .col {
+		float: none;
+		width: 100%;
+	}
+
+	.registration-layout .content-layout .right-side{
+		border-bottom-left-radius: 15px;
+	}
+
+	.registration-layout .content-layout .right-side .social-network-layout{
+		padding: 5px 20px 30px 20px;
+		width: 100%;
+	}
+
+	/*
+		START: Анимация кнопки социальных сетей на мобильных устройствах
+	*/
+	.social-button{
+		padding: 20px 50px;
+	}
+	.social-button:hover,
+	.social-button:active {
+		color: #7986CB;
+		background: #fff;
+	}
+	/*
+		END: Анимация кнопки социальных сетей на мобильных устройствах
+	*/
+}
+
+/*
+	Ширина экрана планшетов, ноутбуков и мониторов настольных компьютеров
+*/
+@media(min-width: 768px){
+	.registration-layout .header-layout .fa{
+		font-size:150px;
+	}
+
+	.registration-layout .content-layout .right-side{
+		/*
+			Centering Horizontally and Vertically (parent element)
+		*/
+		position: relative;
+	}
+
+	.registration-layout .content-layout .right-side .social-network-layout{
+		/*
+			Centering Horizontally and Vertically (child element)
+		*/
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		margin-top: 20px;
+	}
+}
+
+/* START: Google NoRecaptcha */
+.g-recaptcha,
+.g-recaptcha > div,
+.g-recaptcha > div iframe {
+    max-width: 100%;
+	margin: 0 auto;
+}
+/* END: Google NoRecaptcha */
+
+/* START: Login page css styles */
+.login-layout{
+		min-width: 450px;
+		max-width: 900px;
+		margin: 50px auto;
+		background-color: white;
+		border-radius: 15px;
+		box-shadow: 0 0 30px 0 rgba(0,0,0,0.5);
+}
+
+.login-layout .right-side{
+	background: url('../images/background-3.png') 100% 100% no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+
+.login-layout .right-side .social-network-layout{
+		padding: 5px 30px 30px 30px;
+		width: 100%;
+}
+.login-layout .right-side .social-network-layout .social-button:hover,
+.login-layout .right-side .social-network-layout .social-button:active {
+	color: #2196F3;
+}
+
+.login-layout .right-side .right-title h1{
+	font-size: 20px;
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+.login-layout .left-side .form-layout{
+	padding-top: 15px;
+}
+
+.login-layout .left-side header{
+	background: #2196F3;
+	width: 100%;
+	padding: 30px 0 0 0;
+	text-align:center;
+	border-bottom: 5px solid rgba(0,0,0,.1);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-layout .left-side header .fa {
+	display: block;
+}
+
+/*
+	Ширина экрана планшетов, ноутбуков и мониторов настольных компьютеров
+*/
+@media(min-width: 768px) {
+	.login-layout .left-side header{
+		border-radius: 15px 0 0 0;
+	}
+
+	.login-layout .left-side header .fa {
+		font-size: 150px;
+	}
+
+	.login-layout .right-side{
+		border-radius: 0 15px 15px 0;
+		border-left: 5px solid rgba(0,0,0,.1);
+
+		/* Centering Horizontally and Vertically (parent element) */
+		position: relative;
+	}
+
+	.login-layout .right-side .right-title h1{
+		padding: 90px 5px 90px 5px;
+	}
+
+	.login-layout .right-side .social-network-layout{
+		/* Centering Horizontally and Vertically (child element) */
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		margin-top: 15%;
+	}
+}
+
+/*
+	Ширина экрана мобильных устройств
+*/
+@media(max-width: 767px){
+	.login-layout .left-side header{
+		border-radius: 15px 15px 0 0;
+	}
+
+	.login-layout .left-side header .fa {
+		font-size: 100px;
+	}
+
+	.login-layout .right-side{
+		border-radius: 0 0 15px 15px;
+		border-top: 5px solid rgba(0,0,0,.1);
+	}
+
+	.login-layout .right-side .right-title h1{
+		margin: 20px auto;
+	}
+}
+
+/* Отменить стиль установленный в Bootstrap 4 */
+.login-layout  [class*="col-"]{
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.login-layout .right-side .social-network-layout [class*="col-"]{
+	padding-right: 15px;
+	padding-left: 15px;
+}
+/* END: Login page css styles  */
+
+/* START: STYLE for PROJECT DETAIL Page */
+.project-layout{
+	font-family: 'Ubuntu', sans-serif;
+}
+.project-layout .jumbotron .container p{
+	text-align: justify; /* Выравнивание по ширине */
+}
+.project-layout .container .card,
+.group-task-layout .container .card,
+.task-layout .container .card,
+.group-requirement-type-layout .card,
+.group-requirement-layout .card,
+.requirement-layout .card{
+	margin-bottom: 30px;
+}
+.project-layout .container .card .card-block,
+.group-task-layout .container .card .card-block,
+.task-layout .container .card .card-block,
+.group-requirement-type-layout .card .card-block,
+.group-requirement-layout .card .card-block,
+.requirement-layout .card .card-block{
+	padding: 0;
+}
+.project-layout .container .card .card-block .table{
+	margin-bottom: 0;
+}
+.button-handlers{
+	display:block;
+	margin: auto auto 10px;
+	color: white; !important;
+}
+.last-button-handler{
+	display:block;
+	margin: auto;
+}
+.reversions .container-fluid .card .card-block{
+	padding: 0 !important;
+}
+.reversions .container-fluid .card .card-block .table{
+	margin-bottom: 0;
+}
+.reversions .container-fluid .card{
+	margin-bottom: 30px;
+}
+
+.reversions h3{
+	margin-bottom: 0;
+}
+.internal-table{
+	padding: 0 !important;
+}
+.project-layout table td[class*=col-],
+.project-layout table th[class*=col-]{
+    position: static;
+    display: table-cell;
+    float: none;
+}
+.project-layout .row{
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+}
+
+.project-layout .custom-h,
+.group-task-layout .custom-h,
+.task-layout .custom-h,
+.reversions .custom-h,
+.group-requirement-type-layout .custom-h,
+.requirement-layout .custom-h,
+.home-layout .custom-h{
+	margin-bottom: 0 !important;
+}
+
+.home-layout #unauthorized-open-projects{
+	margin-top: 108px;
+}
+
+.home-layout #unauthorized-close-projects{
+	margin-top: 54px;
+	margin-bottom: 54px;
+}
+
+.group-requirement-type-layout table{
+	margin-bottom: 0 !important;
+}
+
+.project-layout .custom-list-group-item,
+.group-task-layout .custom-list-group-item,
+.task-layout .custom-list-group-item,
+.group-requirement-type-layout .custom-list-group-item,
+.group-requirement-layout .custom-list-group-item,
+.requirement-layout .custom-list-group-item{
+	padding-bottom: 0 !important;
+}
+
+.project-layout .custom-list-group-item:first-child,
+.group-task-layout .custom-list-group-item:first-child,
+.task-layout .custom-list-group-item:first-child,
+.group-requirement-type-layout .custom-list-group-item:first-child,
+.group-requirement-layout .custom-list-group-item:first-child,
+.requirement-layout .custom-list-group-item:first-child{
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+.project-layout .custom-list-group-item:last-child,
+.group-task-layout .custom-list-group-item:last-child,
+.task-layout .custom-list-group-item:last-child,
+.group-requirement-type-layout .custom-list-group-item:last-child,
+.group-requirement-layout .custom-list-group-item:last-child,
+.requirement-layout .custom-list-group-item:last-child{
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.project-layout .comment-number-info-part,
+.group-task-layout .comment-number-info-part,
+.task-layout .comment-number-info-part,
+.group-requirement-type-layout .comment-number-info-part,
+.group-requirement-layout .comment-number-info-part,
+.requirement-layout .comment-number-info-part{
+	padding-right: 15px;
+}
+
+.project-layout .custom-d-flex,
+.group-task-layout .custom-d-flex,
+.task-layout .custom-d-flex,
+.group-requirement-type-layout .custom-d-flex,
+.group-requirement-layout .custom-d-flex,
+.requirement-layout .custom-d-flex{
+	padding-bottom: 12px;
+}
+
+.project-layout .custom-list-group,
+.group-task-layout .custom-list-group,
+.task-layout .custom-list-group,
+.group-requirement-type-layout .custom-list-group,
+.group-requirement-layout .custom-list-group,
+.requirement-layout .custom-list-group{
+	margin-bottom: 12px;
+}
+
+.project-layout .custom-row,
+.group-task-layout .custom-row,
+.task-layout .custom-row,
+.group-requirement-type-layout .custom-row,
+.group-requirement-layout .custom-row,
+.requirement-layout .custom-row{
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+.project-layout .custom-p,
+.group-task-layout .custom-p,
+.task-layout .custom-p,
+.group-requirement-type-layout .custom-p,
+.group-requirement-layout .custom-p,
+.requirement-layout .custom-p{
+	margin-bottom: 0;
+}
+
+.project-layout .custom-no-top-radius:first-child,
+.task-layout .custom-no-top-radius:first-child,
+.group-requirement-type-layout .custom-no-top-radius:first-child,
+.group-requirement-layout .custom-no-top-radius:first-child,
+.requirement-layout .custom-no-top-radius:first-child{
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+.reversions .custom-d-flex{
+	margin-bottom: 12px;
+}
+
+.reversions .custom-list-group-item{
+	padding-bottom: 0;
+}
+
+.reversions .custom-comment-block{
+	padding-bottom: 15px;
+}
+
+.reversions .custom-p{
+	margin-bottom: 0 !important;
+}
+
+.project-layout #id_symbol{
+	list-style-type: none !important;
+	margin-left: 0 !important;
+	padding-left: 0 !important;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.project-layout #id_symbol label{
+	margin-bottom: 0 !important;
+	padding: 5px;
+}
+
+.project-layout .jumbotron,
+.group-task-layout .jumbotron,
+.task-layout .jumbotron,
+.reversions .jumbotron,
+.group-requirement-type-layout .jumbotron,
+.group-requirement-layout .jumbotron,
+.requirement-layout .jumbotron{
+	margin-top: 54px;
+}
+
+.home-layout{
+	margin-top: 54px;
+}
+
+.project-layout .p-justify,
+.group-requirement-layout .p-justify,
+.requirement-layout .p-justify,
+.reversions .p-justify{
+	text-align: justify;
+	margin-top: 15px;
+}
+
+.home-layout .p-justify{
+	text-align: justify;
+}
+
+.project-layout .alert{
+	margin-top: 20px;
+	margin-bottom: 0 !important;
+}
+
+.project-layout .custom-label{
+	margin-bottom: 0 !important;
+}
+
+.project-layout .js-group-requirement-type-add-form .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.group-requirement-type-layout .comment-form-group,
+.group-requirement-layout .comment-form-group,
+.project-layout .comment-form-group,
+.group-task-layout .comment-form-group,
+.task-layout .comment-form-group{
+	margin-bottom: 0 !important;
+}
+
+.project-layout .custom-padding-left-col,
+.group-requirement-type-layout .custom-padding-left-col,
+.group-requirement-layout .custom-padding-left-col{
+	padding-left: 0!important;
+}
+
+.project-layout .custom-padding-right-col,
+.group-requirement-type-layout .custom-padding-right-col,
+.group-requirement-layout .custom-padding-right-col{
+	padding-right: 0!important;
+}
+
+.project-layout .custom-margin-left-button{
+	margin-left: 10px;
+}
+
+.group-requirement-layout .select2,
+.group-requirement-type-layout .select2,
+.project-layout .select2{
+	width: 100% !important;
+}
+
+.requirement-layout #cke_id_description{
+	width: 100% !important;
+}
+.project-layout .dropdown-menu{
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, 0);
+}
+
+.home-layout .pagination{
+	margin-bottom: 0!important;
+	margin-top: 20px;
+}
+
+.dashboard-layout .pagination{
+	margin-bottom: 0!important;
+	margin-top: 20px;
+}
+
+.home-layout .linebreaks p{
+	text-align: justify;
+}
+
+.home-layout .alert{
+	margin-bottom: 0!important;
+}
+
+.home-layout #manager-projects{
+	margin-top: 108px;
+}
+
+.home-layout #developer-projects{
+	margin-top: 54px;
+}
+
+.home-layout #business-analyst-projects{
+	margin-top: 54px;
+}
+
+.home-layout #system-analyst-projects{
+	margin-top: 54px;
+	margin-bottom: 54px;
+}
+
+.dashboard-layout{
+	margin-top: 108px;
+	margin-bottom: 54px;
+}
+/* END: STYLE for PROJECT DETAIL Page */

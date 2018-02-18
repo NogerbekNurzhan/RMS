@@ -1,0 +1,52 @@
+{% load i18n %}
+<div class="list-group" id="object-information-list">
+    {% for object_information in object_information_all %}
+        <div class="list-group-item flex-column align-items-start custom-list-group-item">
+
+            <div class="d-flex w-100 justify-content-end">
+                <a class="btn btn-sm btn-danger" href="{% url 'project:object_information_reversions' project_code=project.code object_information_code=object_information.code %}">
+                    <i class="fa fa-history" aria-hidden="true"></i>&#9;<span>{% trans 'Reversions' %}</span>
+                </a>
+            </div>
+
+            <div class="d-flex w-100 justify-content-start">
+                <p class="p-2 p-justify">{{ object_information.text }}</p>
+            </div>
+
+            <div class="d-flex w-100 justify-content-end custom-d-flex">
+                {% if request_user_is_business_analyst %}
+                    <div class="mr-auto">
+                        <a class="btn btn-sm btn-warning" id="js-edit-object-information-button" data-url="{% url 'project:object_information_edit' project_code=project.code object_information_code=object_information.code %}">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>&#9;<span>{% trans 'Edit' %}</span>
+                        </a>
+                    </div>
+                {% endif %}
+                <div class="object-information-comment-number">
+                    {% include 'project/object_information_comment_number.html' %}
+                </div>
+                <div>
+                    <a class="btn btn-sm btn-primary" data-toggle="collapse" href="#collapse-object-information-{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse-object-information-{{ forloop.counter }}">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i>&#9;<span>{% trans 'Comments' %}</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse w-100 comment-list-block" id="collapse-object-information-{{ forloop.counter }}">
+                <div class="list-group custom-list-group">
+                    <div class="list-group-item bg-faded">
+                        {% include 'project/object_information_comment_form.html' %}
+                    </div>
+                    <div class="object-information-comments">
+                        {% include 'project/object_information_comment_list.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="list-group-item flex-column align-items-start custom-no-top-radius">
+            <div class="d-flex w-100 justify-content-center">
+                <h6 class="mb-1 custom-h"><i class="fa fa-info-circle" aria-hidden="true"></i>&#9;{% trans 'NO INFORMATION' %}</h6>
+            </div>
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,96 @@
+{% load i18n el_pagination_tags %}
+
+
+{% paginate 3 unauthorized_close_projects with "unauthorized_close_projects/" %}
+<div class="card-deck">
+{% for unauthorized_close_project in unauthorized_close_projects %}
+    <div class="card">
+        <div class="card-block">
+            <h4 class="card-title">{{ unauthorized_close_project.name }}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{% trans 'Date of completion' %}:&#9;{{ unauthorized_close_project.revision_date }}</h6>
+            <p class="card-text p-justify">{{ unauthorized_close_project.description|truncatewords:40 }}</p>
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#unauthorized-close-project-modal-lg-{{ forloop.counter }}">{% trans 'Find out more information' %}</button>
+
+            <div class="modal fade" id="unauthorized-close-project-modal-lg-{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="unauthorized-close-project-modal-lg-title-{{ forloop.counter }}" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-uppercase" id="unauthorized-close-project-modal-lg-title-{{ forloop.counter }}"><strong>{% trans 'Project details' %}</strong></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h4 class="card-title">{{ unauthorized_close_project.name }}</h4>
+                            <h6 class="card-subtitle mb-2 text-muted">{% trans 'Date of completion' %}:&#9;{{ unauthorized_close_project.revision_date }}</h6>
+                            <div class="linebreaks">{{ unauthorized_close_project.description|linebreaks }}</div>
+                            <div class="alert alert-info d-flex align-items-center justify-content-center" role="alert">
+                                <span class="text-center">{% trans 'Log in if you want to know more details about the project.' %}</span>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans 'Close' %}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% empty %}
+    <div class="alert alert-danger w-100" role="alert">
+        <h4 class="alert-heading text-uppercase text-center"><i class="fa fa-info-circle" aria-hidden="true"></i>&#9;{% trans 'No data' %}</h4>
+        <p class="text-center mb-0">{% trans 'There is no finished archived projects right now in the system.' %}</p>
+    </div>
+{% endfor %}
+</div>
+
+{% get_pages %}
+{% if pages.paginated %}
+    <div class="d-flex align-items-center justify-content-center">
+        <ul class="pagination">
+    <li class="page-item">
+        <a class="page-link endless_page_link" href="unauthorized_close_projects/{{ pages.first.path }}" aria-label="First" data-el-querystring-key="page">
+            <i class="fa fa-fast-backward" aria-hidden="true"></i>
+            <span class="sr-only">First</span>
+        </a>
+    </li>
+    <li class="page-item">
+        <a class="page-link endless_page_link" href="unauthorized_close_projects/{{ pages.previous.path }}" aria-label="Previous" data-el-querystring-key="page">
+            <i class="fa fa-step-backward" aria-hidden="true"></i>
+            <span class="sr-only">Previous</span>
+        </a>
+    </li>
+    {% for page in pages %}
+        {% if page == None %}
+            <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="...">
+                    <span aria-hidden="true">...</span>
+                    <span class="sr-only">...</span>
+                </a>
+            </li>
+        {% else %}
+            <li class="page-item {% if page.is_current %} active {% endif %}">
+                <a class="page-link endless_page_link" href="unauthorized_close_projects/{{ page.path }}" aria-label="Page {{page.number}}" data-el-querystring-key="page">
+                    <span aria-hidden="true">{{ page.label|safe }}</span>
+                    <span class="sr-only">Page {{page.number}}</span>
+                </a>
+            </li>
+        {% endif %}
+    {% endfor %}
+    <li class="page-item">
+        <a class="page-link endless_page_link" href="unauthorized_close_projects/{{ pages.next.path }}" aria-label="Next" data-el-querystring-key="page">
+            <i class="fa fa-step-forward" aria-hidden="true"></i>
+            <span class="sr-only">Next</span>
+        </a>
+    </li>
+    <li class="page-item">
+        <a class="page-link endless_page_link" href="unauthorized_close_projects/{{ pages.last.path }}" aria-label="Last" data-el-querystring-key="page">
+            <i class="fa fa-fast-forward" aria-hidden="true"></i>
+            <span class="sr-only">Last</span>
+        </a>
+    </li>
+</ul>
+    </div>
+{% endif %}

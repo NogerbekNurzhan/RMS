@@ -1,0 +1,93 @@
+{% load i18n el_pagination_tags %}
+
+
+{% paginate 3 system_analyst_projects with "system_analyst_projects/" %}
+<div class="card-deck">
+{% for system_analyst_project in system_analyst_projects %}
+    <div class="card">
+        <div class="card-block">
+            <h4 class="card-title">{{ system_analyst_project.name }}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{% trans 'Date of creation' %}:&#9;{{ system_analyst_project.revision_date }}</h6>
+            <p class="card-text p-justify">{{ system_analyst_project.description|truncatewords:40 }}</p>
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#system-analyst-project-modal-lg-{{ forloop.counter }}">{% trans 'Find out more information' %}</button>
+
+            <div class="modal fade" id="system-analyst-project-modal-lg-{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="system-analyst-project-modal-lg-title-{{ forloop.counter }}" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-uppercase" id="system-analyst-project-modal-lg-title-{{ forloop.counter }}"><strong>{% trans 'Project details' %}</strong></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h4 class="card-title">{{ system_analyst_project.name }}</h4>
+                            <h6 class="card-subtitle mb-2 text-muted">{% trans 'Date of creation' %}:&#9;{{ system_analyst_project.revision_date }}</h6>
+                            <div class="linebreaks">{{ system_analyst_project.description|linebreaks }}</div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans 'Close' %}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% empty %}
+    <div class="alert alert-danger w-100" role="alert">
+        <h4 class="alert-heading text-uppercase text-center"><i class="fa fa-info-circle" aria-hidden="true"></i>&#9;{% trans 'No data' %}</h4>
+        <p class="text-center mb-0">{% trans 'Right now there is no project in the system where are you system analyst.' %}</p>
+    </div>
+{% endfor %}
+</div>
+
+{% get_pages %}
+{% if pages.paginated %}
+    <div class="d-flex align-items-center justify-content-center">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link endless_page_link" href="system_analyst_projects/{{ pages.first.path }}" aria-label="First" data-el-querystring-key="page">
+                    <i class="fa fa-fast-backward" aria-hidden="true"></i>
+                    <span class="sr-only">First</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link endless_page_link" href="system_analyst_projects/{{ pages.previous.path }}" aria-label="Previous" data-el-querystring-key="page">
+                    <i class="fa fa-step-backward" aria-hidden="true"></i>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            {% for page in pages %}
+                {% if page == None %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="...">
+                            <span aria-hidden="true">...</span>
+                            <span class="sr-only">...</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item {% if page.is_current %} active {% endif %}">
+                        <a class="page-link endless_page_link" href="system_analyst_projects/{{ page.path }}" aria-label="Page {{page.number}}" data-el-querystring-key="page">
+                            <span aria-hidden="true">{{ page.label|safe }}</span>
+                            <span class="sr-only">Page {{page.number}}</span>
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            <li class="page-item">
+                <a class="page-link endless_page_link" href="system_analyst_projects/{{ pages.next.path }}" aria-label="Next" data-el-querystring-key="page">
+                    <i class="fa fa-step-forward" aria-hidden="true"></i>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link endless_page_link" href="system_analyst_projects/{{ pages.last.path }}" aria-label="Last" data-el-querystring-key="page">
+                    <i class="fa fa-fast-forward" aria-hidden="true"></i>
+                    <span class="sr-only">Last</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endif %}

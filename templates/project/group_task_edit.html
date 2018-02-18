@@ -1,0 +1,26 @@
+{% load i18n widget_tweaks %}
+
+<form method="post" action="{% url 'project:group_task_edit' project_code=project.code group_task_code=group_task.code %}" class="js-group-task-edit-form">
+    {% csrf_token %}
+    <div class="modal-header">
+        <h5 class="modal-title">{% trans 'Edit Group Task' %}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        {% for field in group_task_form %}
+            <div class="form-group{% if field.errors %} has-danger{% endif %}">
+                <label class="form-control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {% render_field field class="form-control" %}
+                {% for error in field.errors %}
+                    <div class="alert alert-danger text-center form-control-feedback" role="alert">{{ error }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
+        <button type="submit" class="btn btn-primary">{% trans 'Update' %}</button>
+    </div>
+</form>

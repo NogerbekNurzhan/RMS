@@ -1,0 +1,1453 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Andrew Grigorev <andrew@ei-grad.ru>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-11 19:26+0600\n"
+"PO-Revision-Date: 2015-09-09 00:39+0300\n"
+"Last-Translator: Andrew Grigorev <andrew@ei-grad.ru>\n"
+"Language-Team: Russian <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: .\RMS\settings.py:102
+msgid "English"
+msgstr "Английский"
+
+#: .\RMS\settings.py:103
+msgid "Russian"
+msgstr "Русский"
+
+#: .\account\admin.py:22
+msgid "Activate users"
+msgstr "Активировать учетные записи"
+
+#: .\account\admin.py:39
+msgid "Re-send activation emails"
+msgstr "Выслать ключи активации заново"
+
+#: .\account\forms.py:34
+msgid "You're not a robot, right? You must select this Checkbox."
+msgstr "Выберите Checkbox, чтобы подтвердить, что вы не робот."
+
+#: .\account\forms.py:43 .\templates\project\pdf.html:61
+#: .\templates\project\project_detail.html:95
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: .\account\forms.py:47
+msgid "Email address"
+msgstr "Адрес электронной почты"
+
+#: .\account\forms.py:51
+msgid "First name"
+msgstr "Имя"
+
+#: .\account\forms.py:55
+msgid "Last name"
+msgstr "Фамилия"
+
+#: .\account\forms.py:59 .\templates\account\login.html:47
+msgid "Password"
+msgstr "Пароль"
+
+#: .\account\forms.py:63
+msgid "Confirm password"
+msgstr "Подтверждение пароля"
+
+#: .\account\forms.py:65
+msgid "This field is required. Please enter your Confirm Password."
+msgstr "Данное поле объязательно. Введите пароль для подтверждения."
+
+#: .\account\forms.py:70
+msgid "Email already exists."
+msgstr "Подобный адрес электронной почты уже существует."
+
+#: .\account\forms.py:77
+msgid "Enter the same password as above, for verification."
+msgstr "Введите такой же пароль как и выше для проверки."
+
+#: .\account\forms.py:86
+msgid "I have read and agree to the Terms of Service"
+msgstr "Я прочитал Правила Использования и согласен с ними"
+
+#: .\account\forms.py:87
+msgid "You must agree to the terms to register"
+msgstr "Для регистрации Вы должны согласиться с Правилами"
+
+#: .\account\forms.py:101
+msgid ""
+"This email address is already in use. Please supply a different email "
+"address."
+msgstr ""
+"Этот адрес электронной почты уже используется. Пожалуйста, введите другой "
+"адрес."
+
+#: .\account\forms.py:123
+msgid ""
+"Registration using free email addresses is prohibited. Please supply a "
+"different email address."
+msgstr ""
+"Регистрация с использованием свободных почтовых серверов запрещена. "
+"Пожалуйста, введите другой адрес электронной почты."
+
+#: .\account\forms.py:129
+msgid "E-mail"
+msgstr "E-mail"
+
+#: .\account\models.py:219
+msgid "user"
+msgstr "пользователь"
+
+#: .\account\models.py:221
+msgid "activation key"
+msgstr "ключ активации"
+
+#: .\account\models.py:227
+msgid "account profile"
+msgstr "карточка регистрации"
+
+#: .\account\models.py:228
+msgid "account profiles"
+msgstr "карточки регистрации"
+
+#: .\project\forms.py:41
+msgid "Select the user"
+msgstr "Выберите пользователя"
+
+#: .\project\forms.py:42
+msgid "User"
+msgstr "Пользователь"
+
+#: .\project\forms.py:43 .\project\models.py:59
+#: .\templates\project\pdf.html:62 .\templates\project\project_detail.html:96
+msgid "Role"
+msgstr "Роль"
+
+#: .\project\forms.py:76 .\project\forms.py:92 .\project\models.py:20
+#: .\project\models.py:105 .\project\models.py:132 .\project\models.py:158
+#: .\project\models.py:241 .\project\models.py:255 .\project\models.py:277
+msgid "Name"
+msgstr "Название"
+
+#: .\project\forms.py:134
+msgid "Comment Text"
+msgstr "Текст комментария"
+
+#: .\project\forms.py:227 .\project\forms.py:263
+msgid "Select the task"
+msgstr "Выберите задачу"
+
+#: .\project\models.py:11
+msgid "Active"
+msgstr "Активный"
+
+#: .\project\models.py:12
+msgid "Finished"
+msgstr "Законченный"
+
+#: .\project\models.py:18 .\project\models.py:78 .\project\models.py:103
+#: .\project\models.py:130 .\project\models.py:154 .\project\models.py:191
+#: .\project\models.py:207 .\project\models.py:223 .\project\models.py:251
+#: .\project\models.py:273 .\project\models.py:296 .\project\models.py:321
+#: .\templates\project\creation_goal_reversions.html:59
+#: .\templates\project\object_information_reversions.html:59
+#: .\templates\project\purpose_reversions.html:59
+#: .\templates\project\user_characteristic_reversions.html:59
+msgid "Code"
+msgstr "Код"
+
+#: .\project\models.py:22 .\project\models.py:69 .\project\models.py:86
+#: .\project\models.py:300 .\project\models.py:325
+#: .\templates\project\pdf.html:146 .\templates\project\pdf.html:173
+#: .\templates\project\pdf.html:199 .\templates\project\pdf.html:227
+#: .\templates\project\pdf.html:257 .\templates\project\pdf.html:381
+#: .\templates\project\requirement_list.html:65
+#: .\templates\project\requirement_list.html:182
+#: .\templates\project\requirement_reversions.html:107
+#: .\templates\project\requirement_reversions.html:121
+#: .\templates\project\specification_list.html:17
+msgid "Description"
+msgstr "Описание"
+
+#: .\project\models.py:24 .\templates\home\business_analyst_projects.html:10
+#: .\templates\home\business_analyst_projects.html:27
+#: .\templates\home\developer_projects.html:10
+#: .\templates\home\developer_projects.html:27
+#: .\templates\home\manager_projects.html:10
+#: .\templates\home\manager_projects.html:27
+#: .\templates\home\system_analyst_projects.html:10
+#: .\templates\home\system_analyst_projects.html:27
+#: .\templates\project\projects.html:8
+msgid "Date of creation"
+msgstr "Дата создания"
+
+#: .\project\models.py:26 .\project\models.py:92 .\project\models.py:113
+#: .\project\models.py:140 .\project\models.py:164 .\project\models.py:201
+#: .\project\models.py:217 .\project\models.py:233 .\project\models.py:285
+#: .\project\models.py:310 .\project\models.py:331
+msgid "Date of last update"
+msgstr "Дата последнего обновления"
+
+#: .\project\models.py:28
+msgid "Members"
+msgstr "Члены"
+
+#: .\project\models.py:30
+msgid "Status"
+msgstr "Статус"
+
+#: .\project\models.py:34
+msgid "Project"
+msgstr "Проект"
+
+#: .\project\models.py:35 .\templates\project\project_list.html:56
+msgid "Projects"
+msgstr "Проекты"
+
+#: .\project\models.py:46 .\templates\home.html:65
+msgid "Manager"
+msgstr "Менеджер"
+
+#: .\project\models.py:47 .\templates\home.html:78
+msgid "Developer"
+msgstr "Разработчик"
+
+#: .\project\models.py:48 .\templates\home.html:91
+msgid "Business Analyst"
+msgstr "Бизнес Аналитик"
+
+#: .\project\models.py:49 .\templates\home.html:104
+msgid "System Analyst"
+msgstr "Системный Аналитик"
+
+#: .\project\models.py:65 .\project\models.py:82
+#: .\templates\project\pdf.html:144
+msgid "Class"
+msgstr "Класс"
+
+#: .\project\models.py:67 .\project\models.py:84 .\project\models.py:107
+#: .\project\models.py:134 .\project\models.py:156 .\project\models.py:239
+#: .\project\models.py:253 .\project\models.py:275 .\project\models.py:298
+#: .\project\models.py:323 .\templates\project\function_list.html:18
+#: .\templates\project\group_requirement_list.html:6
+#: .\templates\project\group_requirement_list.html:33
+#: .\templates\project\group_requirement_type_list.html:10
+#: .\templates\project\group_task_list.html:20
+#: .\templates\project\pdf.html:145 .\templates\project\pdf.html:172
+#: .\templates\project\pdf.html:198 .\templates\project\pdf.html:226
+#: .\templates\project\pdf.html:256 .\templates\project\pdf.html:284
+#: .\templates\project\pdf.html:317 .\templates\project\pdf.html:350
+#: .\templates\project\pdf.html:380
+#: .\templates\project\requirement_list.html:9
+#: .\templates\project\requirement_list.html:63
+#: .\templates\project\requirement_list.html:119
+#: .\templates\project\requirement_list.html:178
+#: .\templates\project\specification_list.html:13
+#: .\templates\project\task_list.html:20
+#: .\templates\project\user_characteristic_reversions.html:97
+msgid "Symbol"
+msgstr "Символ"
+
+#: .\project\models.py:195 .\project\models.py:211 .\project\models.py:227
+msgid "Text"
+msgstr "Текст"
+
+#: .\project\views.py:81
+msgid "This user is already a member of the project!"
+msgstr "Данный пользователь уже является членом проекта!"
+
+#: .\project\views.py:108
+msgid "Group task with the same name is already exist in this project!"
+msgstr "Комплекс задач с таким названием уже существует в данном проекте."
+
+#: .\project\views.py:241
+msgid "Task with the same name is already exist in this group task!"
+msgstr "Задание с таким названием уже существует в данном комплексе задач."
+
+#: .\project\views.py:380
+msgid "Function with the same name is already exist in this task!"
+msgstr "Функция с таким названием уже существует в данной задаче."
+
+#: .\project\views.py:502
+msgid "The same user class is already exist!"
+msgstr "Подобный класс пользователя уже существует в данном проекте"
+
+#: .\project\views.py:504
+msgid "The same user symbol is already exist!"
+msgstr "Подобный символ пользователя уже существует в данном проекте"
+
+#: .\project\views.py:1006
+msgid "Group requirement with the same name is already exist in this type!"
+msgstr "Группа требований с таким названием уже существует."
+
+#: .\project\views.py:1153 .\project\views.py:1314
+msgid "Requirement with the same description is already exist!"
+msgstr "Требование с таким описанием уже существует."
+
+#: .\project\views.py:1391 .\project\views.py:1517
+msgid "Group requirement with the same task is already exist!"
+msgstr "Группа требований с такой же задачей уже существует."
+
+#: .\project\views.py:1434 .\project\views.py:1479 .\project\views.py:1562
+#: .\project\views.py:1611
+msgid "Requirement with the same function is already exist!"
+msgstr "Требование с такой же функцией уже существует!"
+
+#: .\templates\account\activation.html:4
+msgid "Activation Failure"
+msgstr "Сбой активации"
+
+#: .\templates\account\activation.html:7
+msgid "Account activation failed."
+msgstr "Активация аккаунта не удалась."
+
+#: .\templates\account\activation_complete.html:4
+#: .\templates\account\activation_complete_admin_approval.html:4
+msgid "Account Activated"
+msgstr "Учетная запись активирована"
+
+#: .\templates\account\activation_complete.html:8
+#: .\templates\account\activation_complete_admin_approval.html:8
+msgid "Your account is now activated."
+msgstr "Ваша учетная запись теперь активирована."
+
+#: .\templates\account\activation_complete.html:10
+msgid "You can log in."
+msgstr "Вы можете войти."
+
+#: .\templates\account\activation_complete_admin_approval.html:10
+msgid "Once a site administrator activates your account you can login."
+msgstr ""
+"Как только администратор сайта активирует вашу учетную запись, вы можете "
+"войти."
+
+#: .\templates\account\activation_email.html:6
+msgid "account"
+msgstr "учетная запись"
+
+#: .\templates\account\activation_email.html:11
+#, python-format
+msgid ""
+"\n"
+"    You (or someone pretending to be you) have asked to register an account "
+"at\n"
+"    %(site_name)s.  If this wasn't you, please ignore this email\n"
+"    and your address will be removed from our records.\n"
+"    "
+msgstr ""
+"\n"
+"  Вы (или кто-то выдающий себя за вас) оставил заявку на регистрацию\n"
+"  учетной записи на %(site_name)s. Если это были не вы, то проигнорируйте "
+"это сообщение, и ваш почтовый адрес будет удален из наших записей.\n"
+"  "
+
+#: .\templates\account\activation_email.html:18
+#, python-format
+msgid ""
+"\n"
+"    To activate this account, please click the following link within the "
+"next\n"
+"    %(expiration_days)s days:\n"
+"    "
+msgstr ""
+"\n"
+"    Чтобы активировать эту учетную запись, перейдите по следующей ссылке в "
+"течении %(expiration_days)s дней:\n"
+"    "
+
+#: .\templates\account\activation_email.html:30
+#, python-format
+msgid ""
+"\n"
+"    Sincerely,\n"
+"    %(site_name)s Management\n"
+"    "
+msgstr ""
+"\n"
+"    С уважением,<br>\n"
+"    Команда %(site_name)s\n"
+"    "
+
+#: .\templates\account\activation_email.txt:2
+#, python-format
+msgid ""
+"\n"
+"You (or someone pretending to be you) have asked to register an account at\n"
+"%(site_name)s.  If this wasn't you, please ignore this email\n"
+"and your address will be removed from our records.\n"
+msgstr ""
+"\n"
+"Вы (или кто-то выдающий себя за вас) оставил заявку на регистрацию\n"
+"учетной записи на %(site_name)s. Если это были не вы, то проигнорируйте\n"
+"это сообщение, и ваш почтовый адрес будет удален из наших записей.\n"
+
+#: .\templates\account\activation_email.txt:7
+#, python-format
+msgid ""
+"\n"
+"To activate this account, please click the following link within the next\n"
+"%(expiration_days)s days:\n"
+msgstr ""
+"\n"
+"Чтобы активировать эту учетную запись, перейдите по следующей ссылке\n"
+"в течении %(expiration_days)s дней:\n"
+
+#: .\templates\account\activation_email.txt:14
+#, python-format
+msgid ""
+"\n"
+"Sincerely,\n"
+"%(site_name)s Management\n"
+msgstr ""
+"\n"
+"С уважением,\n"
+"Команда %(site_name)s\n"
+
+#: .\templates\account\activation_email_subject.txt:1
+#: .\templates\account\admin_approval_complete_email_subject.txt:1
+msgid "Account activation on"
+msgstr "Активация учетной записи на"
+
+#: .\templates\account\admin_approval.html:4
+msgid "Approval Failure"
+msgstr "Провал утверждения"
+
+#: .\templates\account\admin_approval.html:7
+msgid "Account Approval failed."
+msgstr "Утверждение аккаунта не удалась."
+
+#: .\templates\account\admin_approval_complete.html:4
+msgid "Account Approved"
+msgstr "Учетная запись утверждена"
+
+#: .\templates\account\admin_approval_complete.html:8
+msgid "The user's account is now approved."
+msgstr "Учетная запись пользователя теперь утверждена."
+
+#: .\templates\account\admin_approval_complete_email.html:6
+msgid "Admin approval"
+msgstr "Одобрения администратором"
+
+#: .\templates\account\admin_approval_complete_email.html:11
+msgid "Your account is now approved. You can"
+msgstr "Теперь ваша учетная запись утверждена. Вы можете"
+
+#: .\templates\account\admin_approval_complete_email.html:12
+#: .\templates\home.html:48
+msgid "Login"
+msgstr "Войти"
+
+#: .\templates\account\admin_approval_complete_email.txt:2
+msgid "Your account is now approved. You can log in using the following link"
+msgstr ""
+"Теперь ваша учетная запись утверждена. Вы можете войти, используя следующую "
+"ссылку"
+
+#: .\templates\account\admin_approval_email.html:6
+msgid "Account"
+msgstr "Аккаунт"
+
+#: .\templates\account\admin_approval_email.html:11
+#, python-format
+msgid ""
+"\n"
+"        The following user (%(user)s) has asked to register an account at %"
+"(site_name)s.\n"
+"    "
+msgstr ""
+
+#: .\templates\account\admin_approval_email.html:16
+msgid "To approve this, please"
+msgstr "Для одобрения, пожалуйста"
+
+#: .\templates\account\admin_approval_email.html:17
+msgid "Click Here"
+msgstr "Нажмите Сюда"
+
+#: .\templates\account\admin_approval_email.html:20
+#, python-format
+msgid ""
+"\n"
+"        Sincerely, %(site_name)s Management\n"
+"    "
+msgstr ""
+"\n"
+"    С уважением,<br>\n"
+"    Команда %(site_name)s\n"
+"    "
+
+#: .\templates\account\admin_approval_email.txt:2
+#, python-format
+msgid ""
+"\n"
+"    The following user (%(user)s) has asked to register an account at %"
+"(site_name)s.\n"
+msgstr ""
+
+#: .\templates\account\admin_approval_email.txt:5
+msgid ""
+"\n"
+"    To approve this, please click the following link.\n"
+msgstr ""
+
+#: .\templates\account\admin_approval_email_subject.txt:1
+msgid "Account approval on"
+msgstr "Утверждение учетной записи на"
+
+#: .\templates\account\dashboard.html:5 .\templates\home.html:17
+#: .\templates\project\creation_goal_reversions.html:22
+#: .\templates\project\function_reversions.html:22
+#: .\templates\project\group_requirement_detail.html:34
+#: .\templates\project\group_requirement_reversions.html:22
+#: .\templates\project\group_requirement_type_detail.html:22
+#: .\templates\project\group_task_detail.html:22
+#: .\templates\project\group_task_reversions.html:22
+#: .\templates\project\object_information_reversions.html:22
+#: .\templates\project\project_detail.html:27
+#: .\templates\project\project_list.html:5
+#: .\templates\project\project_list.html:12
+#: .\templates\project\purpose_reversions.html:22
+#: .\templates\project\requirement_detail.html:26
+#: .\templates\project\requirement_reversions.html:22
+#: .\templates\project\specification_reversions.html:22
+#: .\templates\project\task_detail.html:22
+#: .\templates\project\task_reversions.html:22
+#: .\templates\project\user_characteristic_reversions.html:22
+msgid "Dashboard"
+msgstr "Панель управления"
+
+#: .\templates\account\login.html:4 .\templates\account\login.html:21
+#: .\templates\account\login.html:77
+msgid "LOGIN"
+msgstr "ВОЙТИ"
+
+#: .\templates\account\login.html:22
+msgid "It`s free and takes less than 15 seconds."
+msgstr "Это бесплатно и займет меньше 15 секунд."
+
+#: .\templates\account\login.html:34
+msgid "Username or Email"
+msgstr "Имя пользователя или Email"
+
+#: .\templates\account\login.html:55
+msgid "Forgot password?"
+msgstr "Забыли свой пароль?"
+
+#: .\templates\account\login.html:62
+msgid "Don't have an account?"
+msgstr "Нету учетной записи?"
+
+#: .\templates\account\login.html:62
+#: .\templates\account\registration_form.html:110
+msgid "SIGN UP"
+msgstr "Регистрация"
+
+#: .\templates\account\login.html:68
+msgid "Введенные вами данные недействительны."
+msgstr ""
+
+#: .\templates\account\login.html:68
+msgid "Проверьте их еще раз."
+msgstr ""
+
+#: .\templates\account\login.html:93
+#: .\templates\account\registration_form.html:125
+msgid "Connect with your social network account"
+msgstr "Войти через аккаунт социальной сети"
+
+#: .\templates\account\logout.html:4
+msgid "Logged out"
+msgstr "Выход"
+
+#: .\templates\account\logout.html:7
+msgid "Successfully logged out"
+msgstr "Вы успешно вышли из своей учетной записи"
+
+#: .\templates\account\password_change_done.html:4
+msgid "Password changed"
+msgstr "Пароль изменен"
+
+#: .\templates\account\password_change_done.html:7
+msgid "Password successfully changed!"
+msgstr "Пароль успешно изменен!"
+
+#: .\templates\account\password_change_form.html:4
+#: .\templates\account\password_change_form.html:10
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: .\templates\account\password_reset_complete.html:4
+msgid "Password reset complete"
+msgstr "Сброс пароля завершен"
+
+#: .\templates\account\password_reset_complete.html:8
+msgid "Your password has been reset!"
+msgstr "Ваш пароль был сброшен!"
+
+#: .\templates\account\password_reset_complete.html:9
+#, python-format
+msgid "You may now <a href=\"%(login_url)s\">log in</a>"
+msgstr "Теперь вы можете <a href=\"%(login_url)s\">войти</a>"
+
+#: .\templates\account\password_reset_confirm.html:4
+msgid "Confirm password reset"
+msgstr "Подтверждение сброса пароля"
+
+#: .\templates\account\password_reset_confirm.html:7
+msgid "Enter your new password below to reset your password:"
+msgstr "Введите ваш новый пароль:"
+
+#: .\templates\account\password_reset_confirm.html:11
+#: .\templates\account\set_password_form.html:5
+msgid "Set password"
+msgstr "Установить пароль"
+
+#: .\templates\account\password_reset_done.html:4
+msgid "Password reset"
+msgstr "Сброс пароля"
+
+#: .\templates\account\password_reset_done.html:8
+msgid ""
+"\n"
+"    We have sent you an email with a link to reset your password. Please "
+"check\n"
+"    your email and click the link to continue.\n"
+"    "
+msgstr ""
+"\n"
+"    Вам было отправлено письмо со ссылкой на сброс пароля. Проверьте\n"
+"    вашу почту и перейдите по указанной ссылке для продолжения.\n"
+"    "
+
+#: .\templates\account\password_reset_email.html:3
+msgid "Greetings"
+msgstr "Привет"
+
+#: .\templates\account\password_reset_email.html:5
+#, python-format
+msgid ""
+"\n"
+"    You are receiving this email because you (or someone pretending to be "
+"you) requested that your password be reset on the %(domain)s site.\n"
+"    If you do not wish to reset your password, please ignore this message.\n"
+msgstr ""
+"\n"
+"Вы получили это письмо потому что вы (или кто-то выдающий себя за вас)\n"
+"запросил сброс пароля на сайте %(domain)s. Если это были не вы, то просто\n"
+"проигнорируйте это сообщение.\n"
+
+#: .\templates\account\password_reset_email.html:10
+msgid ""
+"\n"
+"    To reset your password, please click the following link, or copy and "
+"paste it into your web browser:\n"
+msgstr ""
+"\n"
+"Чтобы сбросить пароль, перейдите по следующей ссылке:\n"
+
+#: .\templates\account\password_reset_email.html:16
+msgid "Your username, in case you've forgotten:"
+msgstr "Ваше имя пользователя, на случай если вы его забыли:"
+
+#: .\templates\account\password_reset_email.html:19
+msgid "Best regards"
+msgstr "С уважением,"
+
+#: .\templates\account\password_reset_email.html:19
+msgid "Management"
+msgstr "Администрация"
+
+#: .\templates\account\password_reset_form.html:4
+#: .\templates\account\password_reset_form.html:15
+msgid "Reset password"
+msgstr "Сбросить пароль"
+
+#: .\templates\account\password_reset_form.html:8
+msgid ""
+"\n"
+"    Forgot your password? Enter your email in the form below and we'll send "
+"you instructions for creating a new one.\n"
+"    "
+msgstr ""
+"\n"
+"    Забыли свой пароль? Введите свой адрес электронной почты и мы отправим "
+"вам инструкции по установке нового пароля.\n"
+"    "
+
+#: .\templates\account\reactivation_complete.html:4
+#, fuzzy
+#| msgid "Account activation on"
+msgid "Account Activation Resent"
+msgstr "Активация учетной записи на"
+
+#: .\templates\account\reactivation_complete.html:8
+#, python-format
+msgid ""
+"\n"
+"  We have sent an email to %(email)s with further instructions.\n"
+"  "
+msgstr ""
+
+#: .\templates\account\reactivation_form.html:4
+msgid "Resend Activation Email"
+msgstr "Выслать письмо активации"
+
+#: .\templates\account\reactivation_form.html:10
+#: .\templates\project\group_requirement_type_add.html:31
+msgid "Submit"
+msgstr "Отправить"
+
+#: .\templates\account\registration_closed.html:4
+msgid "Registration is closed"
+msgstr "Регистрация закрыта"
+
+#: .\templates\account\registration_closed.html:7
+msgid "Sorry, but account is closed at this moment. Come back later."
+msgstr "Извините, но регистрация в данный момент закрыта. Попробуйте позже."
+
+#: .\templates\account\registration_complete.html:4
+msgid "Activation email sent"
+msgstr "Письмо активации отправлено"
+
+#: .\templates\account\registration_complete.html:7
+msgid "Please check your email to complete the account process."
+msgstr "Проверьте свою электронную почту для завершения процесса регистрации."
+
+#: .\templates\account\registration_form.html:4
+msgid "Register for an account"
+msgstr "Регистрация учетной записи"
+
+#: .\templates\account\registration_form.html:18
+msgid "WELCOME"
+msgstr "ДОБРО ПОЖАЛОВАТЬ"
+
+#: .\templates\account\registration_form.html:19
+msgid "Create your account. It`s free and takes less than 30 seconds."
+msgstr "Создайте учетную запись. Это бесплатно и займет меньше 30 секунд."
+
+#: .\templates\account\registration_form.html:31
+msgid "Connect with a classic way"
+msgstr "Зарегистрируйтесь классическим путем"
+
+#: .\templates\account\set_password_done.html:5
+msgid "Set password Done"
+msgstr "Пароль установлен"
+
+#: .\templates\home.html:5
+msgid "Requirement Management System"
+msgstr "Система управления требованиями"
+
+#: .\templates\home.html:12
+msgid "RMS"
+msgstr "RMS"
+
+#: .\templates\home.html:26
+#: .\templates\project\creation_goal_reversions.html:30
+#: .\templates\project\function_reversions.html:30
+#: .\templates\project\group_requirement_detail.html:42
+#: .\templates\project\group_requirement_reversions.html:30
+#: .\templates\project\group_requirement_type_detail.html:30
+#: .\templates\project\group_task_detail.html:30
+#: .\templates\project\group_task_reversions.html:30
+#: .\templates\project\object_information_reversions.html:30
+#: .\templates\project\project_detail.html:35
+#: .\templates\project\project_list.html:24
+#: .\templates\project\purpose_reversions.html:30
+#: .\templates\project\requirement_detail.html:34
+#: .\templates\project\requirement_reversions.html:30
+#: .\templates\project\specification_reversions.html:30
+#: .\templates\project\task_detail.html:30
+#: .\templates\project\task_reversions.html:30
+#: .\templates\project\user_characteristic_reversions.html:30
+msgid "Languages"
+msgstr "Языки"
+
+#: .\templates\home.html:29
+#: .\templates\project\creation_goal_reversions.html:33
+#: .\templates\project\function_reversions.html:33
+#: .\templates\project\group_requirement_detail.html:45
+#: .\templates\project\group_requirement_reversions.html:33
+#: .\templates\project\group_requirement_type_detail.html:33
+#: .\templates\project\group_task_detail.html:33
+#: .\templates\project\group_task_reversions.html:33
+#: .\templates\project\object_information_reversions.html:33
+#: .\templates\project\project_detail.html:38
+#: .\templates\project\project_list.html:27
+#: .\templates\project\purpose_reversions.html:33
+#: .\templates\project\requirement_detail.html:37
+#: .\templates\project\requirement_reversions.html:33
+#: .\templates\project\specification_reversions.html:33
+#: .\templates\project\task_detail.html:33
+#: .\templates\project\task_reversions.html:33
+#: .\templates\project\user_characteristic_reversions.html:33
+msgid "Available languages"
+msgstr "Доступные языкы"
+
+#: .\templates\home.html:44
+#: .\templates\project\creation_goal_reversions.html:47
+#: .\templates\project\function_reversions.html:47
+#: .\templates\project\group_requirement_detail.html:59
+#: .\templates\project\group_requirement_reversions.html:47
+#: .\templates\project\group_requirement_type_detail.html:47
+#: .\templates\project\group_task_detail.html:47
+#: .\templates\project\group_task_reversions.html:47
+#: .\templates\project\object_information_reversions.html:47
+#: .\templates\project\project_detail.html:52
+#: .\templates\project\project_list.html:41
+#: .\templates\project\purpose_reversions.html:47
+#: .\templates\project\requirement_detail.html:51
+#: .\templates\project\requirement_reversions.html:47
+#: .\templates\project\specification_reversions.html:47
+#: .\templates\project\task_detail.html:47
+#: .\templates\project\task_reversions.html:47
+#: .\templates\project\user_characteristic_reversions.html:47
+msgid "Logout"
+msgstr "Выход"
+
+#: .\templates\home.html:117
+msgid "Current projects"
+msgstr "Текущие активные проекты системы"
+
+#: .\templates\home.html:130
+msgid "Archive projects"
+msgstr "Завершенные архивные проекты системы"
+
+#: .\templates\home\business_analyst_projects.html:14
+#: .\templates\home\developer_projects.html:14
+#: .\templates\home\manager_projects.html:14
+#: .\templates\home\system_analyst_projects.html:14
+#: .\templates\home\unauthorized_close_projects.html:14
+#: .\templates\home\unauthorized_open_projects.html:12
+msgid "Find out more information"
+msgstr "Узнать больше информации"
+
+#: .\templates\home\business_analyst_projects.html:20
+#: .\templates\home\developer_projects.html:20
+#: .\templates\home\manager_projects.html:20
+#: .\templates\home\system_analyst_projects.html:20
+#: .\templates\home\unauthorized_close_projects.html:20
+#: .\templates\home\unauthorized_open_projects.html:18
+msgid "Project details"
+msgstr "Детали проекта"
+
+#: .\templates\home\business_analyst_projects.html:31
+#: .\templates\home\developer_projects.html:31
+#: .\templates\home\manager_projects.html:34
+#: .\templates\home\system_analyst_projects.html:31
+#: .\templates\home\unauthorized_close_projects.html:34
+#: .\templates\home\unauthorized_open_projects.html:28
+#: .\templates\project\creation_goal_add.html:23
+#: .\templates\project\creation_goal_edit.html:23
+#: .\templates\project\function_add.html:23
+#: .\templates\project\function_edit.html:23
+#: .\templates\project\group_requirement_add.html:29
+#: .\templates\project\group_requirement_type_add.html:30
+#: .\templates\project\group_task_add.html:23
+#: .\templates\project\group_task_edit.html:23
+#: .\templates\project\object_information_add.html:23
+#: .\templates\project\object_information_edit.html:23
+#: .\templates\project\project_member_add.html:23
+#: .\templates\project\purpose_add.html:23
+#: .\templates\project\purpose_edit.html:23
+#: .\templates\project\requirement_add.html:31
+#: .\templates\project\specification_add.html:23
+#: .\templates\project\task_add.html:23 .\templates\project\task_edit.html:23
+#: .\templates\project\user_characteristic_add.html:23
+#: .\templates\project\user_characteristic_edit.html:23
+msgid "Close"
+msgstr "Закрыть"
+
+#: .\templates\home\business_analyst_projects.html:40
+#: .\templates\home\developer_projects.html:40
+#: .\templates\home\manager_projects.html:43
+#: .\templates\home\system_analyst_projects.html:40
+#: .\templates\home\unauthorized_close_projects.html:43
+#: .\templates\home\unauthorized_open_projects.html:37
+#: .\templates\project\projects.html:17
+msgid "No data"
+msgstr "Нет данных"
+
+#: .\templates\home\business_analyst_projects.html:41
+msgid ""
+"Right now there is no project in the system where are you business analyst."
+msgstr ""
+"В данный момент в системе нет проектов в которых вы участвуете как бизнес "
+"аналитик."
+
+#: .\templates\home\developer_projects.html:41
+msgid "Right now there is no project in the system where are you developer."
+msgstr ""
+"В данный момент в системе нет проектов в которых вы участвуете как "
+"разработчик."
+
+#: .\templates\home\manager_projects.html:30
+#: .\templates\home\unauthorized_close_projects.html:30
+msgid "Log in if you want to know more details about the project."
+msgstr "Войдите в систему, если вы хотите узнать больше деталей о проекте."
+
+#: .\templates\home\manager_projects.html:44
+msgid "Right now there is no project in the system where are you manager."
+msgstr ""
+"В данный момент в системе нет проектов в которых вы участвуете как менеджер."
+
+#: .\templates\home\system_analyst_projects.html:41
+msgid ""
+"Right now there is no project in the system where are you system analyst."
+msgstr ""
+"В данный момент в системе нет проектов в которых вы участвуете как системный "
+"аналитик."
+
+#: .\templates\home\unauthorized_close_projects.html:10
+#: .\templates\home\unauthorized_close_projects.html:27
+msgid "Date of completion"
+msgstr "Дата завершение проекта"
+
+#: .\templates\home\unauthorized_close_projects.html:44
+msgid "There is no finished archived projects right now in the system."
+msgstr "В архиве системе на данный момент нет законченных проектов."
+
+#: .\templates\home\unauthorized_open_projects.html:38
+msgid "There is no active projects right now in the system."
+msgstr "В системе на данный момент нет активных проектов."
+
+#: .\templates\project\creation_goal_add.html:6
+msgid "Add Creation Goals"
+msgstr "Добавить цели создания системы"
+
+#: .\templates\project\creation_goal_add.html:24
+#: .\templates\project\function_add.html:24
+#: .\templates\project\group_requirement_add.html:30
+#: .\templates\project\group_task_add.html:24
+#: .\templates\project\object_information_add.html:24
+#: .\templates\project\project_member_add.html:24
+#: .\templates\project\purpose_add.html:24
+#: .\templates\project\requirement_add.html:32
+#: .\templates\project\specification_add.html:24
+#: .\templates\project\task_add.html:24
+#: .\templates\project\user_characteristic_add.html:24
+msgid "Create"
+msgstr "Создать"
+
+#: .\templates\project\creation_goal_comment_list.html:13
+#: .\templates\project\creation_goal_reversions.html:120
+#: .\templates\project\function_comment_list.html:13
+#: .\templates\project\function_reversions.html:119
+#: .\templates\project\group_requirement_comment_list.html:13
+#: .\templates\project\group_requirement_reversions.html:119
+#: .\templates\project\group_task_comment_list.html:13
+#: .\templates\project\group_task_reversions.html:119
+#: .\templates\project\object_information_comment_list.html:13
+#: .\templates\project\object_information_reversions.html:120
+#: .\templates\project\purpose_comment_list.html:13
+#: .\templates\project\purpose_reversions.html:120
+#: .\templates\project\requirement_comment_list.html:13
+#: .\templates\project\requirement_reversions.html:158
+#: .\templates\project\specification_comment_list.html:14
+#: .\templates\project\specification_reversions.html:119
+#: .\templates\project\task_comment_list.html:13
+#: .\templates\project\task_reversions.html:119
+#: .\templates\project\user_characteristic_comment_list.html:13
+#: .\templates\project\user_characteristic_reversions.html:136
+msgid "NO COMMENTS"
+msgstr "НЕТ КОММЕНТАРИЕВ"
+
+#: .\templates\project\creation_goal_comment_number.html:2
+#: .\templates\project\creation_goal_list.html:29
+#: .\templates\project\creation_goal_reversions.html:97
+#: .\templates\project\function_comment_number.html:2
+#: .\templates\project\function_list.html:34
+#: .\templates\project\function_reversions.html:96
+#: .\templates\project\group_requirement_comment_number.html:2
+#: .\templates\project\group_requirement_list.html:49
+#: .\templates\project\group_requirement_reversions.html:96
+#: .\templates\project\group_task_comment_number.html:2
+#: .\templates\project\group_task_list.html:36
+#: .\templates\project\group_task_reversions.html:96
+#: .\templates\project\object_information_comment_number.html:2
+#: .\templates\project\object_information_list.html:29
+#: .\templates\project\object_information_reversions.html:97
+#: .\templates\project\purpose_comment_number.html:2
+#: .\templates\project\purpose_list.html:29
+#: .\templates\project\purpose_reversions.html:97
+#: .\templates\project\requirement_comment_number.html:2
+#: .\templates\project\requirement_list.html:34
+#: .\templates\project\requirement_list.html:88
+#: .\templates\project\requirement_list.html:138
+#: .\templates\project\requirement_list.html:202
+#: .\templates\project\requirement_reversions.html:135
+#: .\templates\project\specification_comment_number.html:2
+#: .\templates\project\specification_list.html:43
+#: .\templates\project\specification_reversions.html:96
+#: .\templates\project\task_comment_number.html:2
+#: .\templates\project\task_list.html:36
+#: .\templates\project\task_reversions.html:96
+#: .\templates\project\user_characteristic_comment_number.html:2
+#: .\templates\project\user_characteristic_list.html:33
+#: .\templates\project\user_characteristic_reversions.html:113
+msgid "Comments"
+msgstr "Комментарии"
+
+#: .\templates\project\creation_goal_edit.html:6
+msgid "Edit creation goals"
+msgstr "Редактирование цели создания системы"
+
+#: .\templates\project\creation_goal_edit.html:24
+#: .\templates\project\function_edit.html:24
+#: .\templates\project\group_task_edit.html:24
+#: .\templates\project\object_information_edit.html:24
+#: .\templates\project\purpose_edit.html:24
+#: .\templates\project\specification_edit.html:24
+#: .\templates\project\task_edit.html:24
+#: .\templates\project\user_characteristic_edit.html:24
+msgid "Update"
+msgstr "Обновить"
+
+#: .\templates\project\creation_goal_list.html:8
+#: .\templates\project\function_list.html:9
+#: .\templates\project\group_requirement_list.html:21
+#: .\templates\project\group_task_list.html:8
+#: .\templates\project\object_information_list.html:8
+#: .\templates\project\purpose_list.html:8
+#: .\templates\project\requirement_list.html:23
+#: .\templates\project\requirement_list.html:77
+#: .\templates\project\requirement_list.html:130
+#: .\templates\project\requirement_list.html:169
+#: .\templates\project\specification_list.html:8
+#: .\templates\project\task_list.html:8
+#: .\templates\project\user_characteristic_list.html:8
+msgid "Reversions"
+msgstr "Изменения"
+
+#: .\templates\project\creation_goal_list.html:20
+#: .\templates\project\function_list.html:25
+#: .\templates\project\group_requirement_list.html:40
+#: .\templates\project\group_task_list.html:27
+#: .\templates\project\object_information_list.html:20
+#: .\templates\project\purpose_list.html:20
+#: .\templates\project\requirement_list.html:19
+#: .\templates\project\requirement_list.html:73
+#: .\templates\project\requirement_list.html:126
+#: .\templates\project\requirement_list.html:193
+#: .\templates\project\specification_list.html:34
+#: .\templates\project\task_list.html:27
+#: .\templates\project\user_characteristic_list.html:24
+msgid "Edit"
+msgstr "Редактировать"
+
+#: .\templates\project\creation_goal_list.html:48
+#: .\templates\project\function_list.html:53
+#: .\templates\project\group_requirement_list.html:68
+#: .\templates\project\group_requirement_tbody.html:14
+#: .\templates\project\group_requirement_type_list.html:22
+#: .\templates\project\group_task_list.html:55
+#: .\templates\project\object_information_list.html:48
+#: .\templates\project\purpose_list.html:48
+#: .\templates\project\requirement_list.html:53
+#: .\templates\project\requirement_list.html:107
+#: .\templates\project\requirement_list.html:157
+#: .\templates\project\requirement_list.html:221
+#: .\templates\project\specification_list.html:62
+#: .\templates\project\task_list.html:55
+#: .\templates\project\user_characteristic_list.html:52
+msgid "NO INFORMATION"
+msgstr "НЕТ ИНФОРМАЦИИ"
+
+#: .\templates\project\creation_goal_reversions.html:5
+msgid "Creation Goal Reversions"
+msgstr "Изменения цели создания системы"
+
+#: .\templates\project\creation_goal_reversions.html:12
+#: .\templates\project\function_reversions.html:12
+#: .\templates\project\group_task_reversions.html:12
+#: .\templates\project\object_information_reversions.html:12
+#: .\templates\project\purpose_reversions.html:12
+#: .\templates\project\task_reversions.html:12
+#: .\templates\project\user_characteristic_reversions.html:12
+msgid "Reversion details"
+msgstr "Детали изменений"
+
+#: .\templates\project\creation_goal_reversions.html:16
+#: .\templates\project\function_reversions.html:16
+#: .\templates\project\group_requirement_detail.html:28
+#: .\templates\project\group_requirement_reversions.html:16
+#: .\templates\project\group_requirement_type_detail.html:16
+#: .\templates\project\group_task_detail.html:16
+#: .\templates\project\group_task_reversions.html:16
+#: .\templates\project\object_information_reversions.html:16
+#: .\templates\project\purpose_reversions.html:16
+#: .\templates\project\requirement_detail.html:20
+#: .\templates\project\requirement_reversions.html:16
+#: .\templates\project\specification_reversions.html:16
+#: .\templates\project\task_detail.html:16
+#: .\templates\project\task_reversions.html:16
+#: .\templates\project\user_characteristic_reversions.html:16
+msgid "Back"
+msgstr "Назад"
+
+#: .\templates\project\creation_goal_reversions.html:19
+#: .\templates\project\function_reversions.html:19
+#: .\templates\project\group_requirement_detail.html:31
+#: .\templates\project\group_requirement_reversions.html:19
+#: .\templates\project\group_requirement_type_detail.html:19
+#: .\templates\project\group_task_detail.html:19
+#: .\templates\project\group_task_reversions.html:19
+#: .\templates\project\object_information_reversions.html:19
+#: .\templates\project\project_detail.html:24
+#: .\templates\project\project_list.html:16
+#: .\templates\project\purpose_reversions.html:19
+#: .\templates\project\requirement_detail.html:23
+#: .\templates\project\requirement_reversions.html:19
+#: .\templates\project\specification_reversions.html:19
+#: .\templates\project\task_detail.html:19
+#: .\templates\project\task_reversions.html:19
+#: .\templates\project\user_characteristic_reversions.html:19
+msgid "Home"
+msgstr "Главная страница"
+
+#: .\templates\project\creation_goal_reversions.html:58
+msgid "Creation Goal"
+msgstr "Цели создания системы"
+
+#: .\templates\project\creation_goal_reversions.html:66
+#: .\templates\project\function_reversions.html:65
+#: .\templates\project\group_requirement_reversions.html:65
+#: .\templates\project\group_task_reversions.html:65
+#: .\templates\project\object_information_reversions.html:66
+#: .\templates\project\purpose_reversions.html:66
+#: .\templates\project\requirement_reversions.html:65
+#: .\templates\project\specification_reversions.html:65
+#: .\templates\project\task_reversions.html:65
+#: .\templates\project\user_characteristic_reversions.html:66
+msgid "Reversion history"
+msgstr "История изменений"
+
+#: .\templates\project\creation_goal_reversions.html:79
+#: .\templates\project\function_reversions.html:78
+#: .\templates\project\group_requirement_reversions.html:78
+#: .\templates\project\group_task_reversions.html:78
+#: .\templates\project\object_information_reversions.html:79
+#: .\templates\project\purpose_reversions.html:79
+#: .\templates\project\requirement_reversions.html:78
+#: .\templates\project\specification_reversions.html:78
+#: .\templates\project\task_reversions.html:78
+#: .\templates\project\user_characteristic_reversions.html:79
+msgid "Author"
+msgstr "Автор"
+
+#: .\templates\project\creation_goal_reversions.html:83
+#: .\templates\project\function_reversions.html:82
+#: .\templates\project\group_requirement_reversions.html:82
+#: .\templates\project\group_task_reversions.html:82
+#: .\templates\project\object_information_reversions.html:83
+#: .\templates\project\purpose_reversions.html:83
+#: .\templates\project\requirement_reversions.html:82
+#: .\templates\project\specification_reversions.html:82
+#: .\templates\project\task_reversions.html:82
+#: .\templates\project\user_characteristic_reversions.html:83
+msgid "Date"
+msgstr "Дата"
+
+#: .\templates\project\creation_goal_reversions.html:102
+#: .\templates\project\function_reversions.html:101
+#: .\templates\project\group_requirement_reversions.html:101
+#: .\templates\project\group_task_reversions.html:101
+#: .\templates\project\object_information_reversions.html:102
+#: .\templates\project\purpose_reversions.html:102
+#: .\templates\project\requirement_reversions.html:140
+#: .\templates\project\specification_reversions.html:101
+#: .\templates\project\task_reversions.html:101
+#: .\templates\project\user_characteristic_reversions.html:118
+msgid "Revert"
+msgstr "Откатиться"
+
+#: .\templates\project\creation_goal_top.html:9
+#: .\templates\project\pdf.html:101
+msgid "Creation goals"
+msgstr "Цели создания системы"
+
+#: .\templates\project\function_add.html:6
+msgid "Create a new Function"
+msgstr "Создать функцию"
+
+#: .\templates\project\function_edit.html:6
+msgid "Edit function"
+msgstr "Редактирование функции"
+
+#: .\templates\project\function_reversions.html:5
+msgid "Function Reversions"
+msgstr "Изменение функции"
+
+#: .\templates\project\function_reversions.html:58
+#: .\templates\project\pdf.html:285
+#: .\templates\project\requirement_list.html:8
+#: .\templates\project\requirement_list.html:118
+#: .\templates\project\requirement_reversions.html:90
+#: .\templates\project\requirement_reversions.html:114
+msgid "Function"
+msgstr "Функция"
+
+#: .\templates\project\group_requirement_add.html:12
+msgid "Create a new group requirement"
+msgstr "Создать группу требований"
+
+#: .\templates\project\group_requirement_detail.html:24
+msgid "Group requirement detail"
+msgstr "Детали группы требования"
+
+#: .\templates\project\group_requirement_detail.html:88
+#: .\templates\project\group_requirement_list.html:24
+#: .\templates\project\group_requirement_tbody.html:8
+msgid "Requirements"
+msgstr "Требования"
+
+#: .\templates\project\group_requirement_list.html:7
+#: .\templates\project\task_reversions.html:58
+msgid "Task"
+msgstr "Задача"
+
+#: .\templates\project\group_requirement_reversions.html:5
+#: .\templates\project\group_requirement_reversions.html:12
+msgid "Group requirement reversions"
+msgstr "Изменение группы требований"
+
+#: .\templates\project\group_requirement_reversions.html:58
+msgid "Group requirement"
+msgstr "Группа требований"
+
+#: .\templates\project\group_requirement_type_add.html:5
+#: .\templates\project\project_detail.html:219
+msgid "Group requirement types"
+msgstr "Типы групп требований"
+
+#: .\templates\project\group_requirement_type_detail.html:12
+msgid "Group requirement type detail"
+msgstr "Детали типа группы требований"
+
+#: .\templates\project\group_requirement_type_detail.html:82
+#: .\templates\project\group_requirement_type_detail.html:94
+#: .\templates\project\group_requirement_type_detail.html:106
+#: .\templates\project\group_requirement_type_list.html:15
+msgid "Group Requirements"
+msgstr "Группа требований"
+
+#: .\templates\project\group_task_add.html:6
+msgid "Create a new group task"
+msgstr "Создать новый комплекс задач"
+
+#: .\templates\project\group_task_detail.html:12
+msgid "Group Task Detail"
+msgstr "Детали комплекса задач"
+
+#: .\templates\project\group_task_detail.html:75
+#: .\templates\project\group_task_list.html:11
+#: .\templates\project\pdf.html:192
+msgid "Tasks"
+msgstr "Задачи"
+
+#: .\templates\project\group_task_edit.html:6
+msgid "Edit Group Task"
+msgstr "Редактирование комплекса задач"
+
+#: .\templates\project\group_task_reversions.html:5
+msgid "Group Task Reversions"
+msgstr "Изменение комплекса задач"
+
+#: .\templates\project\group_task_reversions.html:58
+msgid "Group Task"
+msgstr "Комплекс задач"
+
+#: .\templates\project\object_information_add.html:6
+msgid "Add general information about object"
+msgstr "Добавить общие сведенья об объекте автоматизации"
+
+#: .\templates\project\object_information_edit.html:6
+msgid "Edit general information about object"
+msgstr "Редактирование общих сведений объекта автоматизации"
+
+#: .\templates\project\object_information_reversions.html:5
+msgid "Object Information Reversions"
+msgstr "Изменения общих сведений объекте автоматизации"
+
+#: .\templates\project\object_information_reversions.html:58
+msgid "Object information"
+msgstr "Общая информация об объекте автоматизации"
+
+#: .\templates\project\object_information_top.html:9
+#: .\templates\project\pdf.html:120
+msgid "General information about object"
+msgstr "Общие сведенья об объекте автоматизации"
+
+#: .\templates\project\pdf.html:40
+msgid "Technical Requirements Specification"
+msgstr "Техническое задание"
+
+#: .\templates\project\pdf.html:55 .\templates\project\project_detail.html:84
+msgid "Project members"
+msgstr "Участники проекта"
+
+#: .\templates\project\pdf.html:82 .\templates\project\purpose_top.html:9
+msgid "Purpose of the System"
+msgstr "Назначение системы"
+
+#: .\templates\project\pdf.html:138
+#: .\templates\project\project_detail.html:188
+msgid "User characteristics"
+msgstr "Характеристики пользователей"
+
+#: .\templates\project\pdf.html:166
+#: .\templates\project\project_detail.html:157
+msgid "Group Tasks"
+msgstr "Комплекс задач"
+
+#: .\templates\project\pdf.html:220
+#: .\templates\project\requirement_list.html:186
+#: .\templates\project\requirement_reversions.html:126
+#: .\templates\project\task_detail.html:75
+#: .\templates\project\task_list.html:11
+msgid "Functions"
+msgstr "Функции"
+
+#: .\templates\project\pdf.html:250
+#, fuzzy
+#| msgid "Group requirement types"
+msgid "Group Requirements Types"
+msgstr "Типы групп требований"
+
+#: .\templates\project\pdf.html:286
+#: .\templates\project\requirement_list.html:12
+#: .\templates\project\requirement_list.html:67
+#: .\templates\project\requirement_reversions.html:96
+#: .\templates\project\requirement_reversions.html:102
+msgid "Users"
+msgstr "Пользователи"
+
+#: .\templates\project\pdf.html:318
+#, fuzzy
+#| msgid "Username"
+msgid "Use case"
+msgstr "Имя пользователя"
+
+#: .\templates\project\pdf.html:319
+#, fuzzy
+#| msgid "User characteristics"
+msgid "User characterictic"
+msgstr "Характеристики пользователей"
+
+#: .\templates\project\pdf.html:351
+#: .\templates\project\requirement_reversions.html:58
+msgid "Requirement"
+msgstr "Требование"
+
+#: .\templates\project\project_detail.html:20
+msgid "Project detail"
+msgstr "Детали проекта"
+
+#: .\templates\project\project_detail.html:67
+msgid "Generate Document of Technical Specification"
+msgstr "Сгенерировать документ с Техническим Заданием"
+
+#: .\templates\project\project_member_add.html:6
+msgid "Add a New Project Member"
+msgstr "Добавить нового члена проекта"
+
+#: .\templates\project\projects.html:12
+msgid "Open"
+msgstr "Открыть"
+
+#: .\templates\project\projects.html:18
+msgid "Right now there is no project in the system where are you the member."
+msgstr "В данный момент в системе нет проектов в которых вы участвуете."
+
+#: .\templates\project\purpose_add.html:6
+msgid "Add purpose of the system"
+msgstr "Добавить назначение системы"
+
+#: .\templates\project\purpose_edit.html:6
+msgid "Edit purpose of the system"
+msgstr "Редактировать назначение системы"
+
+#: .\templates\project\purpose_reversions.html:5
+msgid "Purpose Reversions"
+msgstr "Изменения назначения системы"
+
+#: .\templates\project\purpose_reversions.html:58
+msgid "Purpose of the system"
+msgstr "Назначение системы"
+
+#: .\templates\project\requirement_add.html:14
+msgid "Create a new requirement"
+msgstr "Создать новое требование"
+
+#: .\templates\project\requirement_detail.html:16
+#, fuzzy
+#| msgid "Group requirement detail"
+msgid "Requirement Detail"
+msgstr "Детали группы требования"
+
+#: .\templates\project\requirement_edit.html:14
+msgid "Edit requirement"
+msgstr "Редактировать требование"
+
+#: .\templates\project\requirement_list.html:26
+#: .\templates\project\requirement_list.html:80
+#: .\templates\project\requirement_list.html:173
+#: .\templates\project\specification_reversions.html:58
+#: .\templates\project\specification_top.html:8
+msgid "Specification"
+msgstr "Спецификация"
+
+#: .\templates\project\requirement_reversions.html:12
+#, fuzzy
+#| msgid "Requirement Management System"
+msgid "Requirement reversions"
+msgstr "Изменение требования"
+
+#: .\templates\project\specification_add.html:6
+msgid "Create a new specification"
+msgstr "Создать новую спецификацию"
+
+#: .\templates\project\specification_edit.html:6
+msgid "Edit specification"
+msgstr "Редактировать спецификацию"
+
+#: .\templates\project\specification_reversions.html:5
+#: .\templates\project\specification_reversions.html:12
+msgid "Specification Reversions"
+msgstr "Изменение спецификации"
+
+#: .\templates\project\task_add.html:6
+msgid "Create a new Task"
+msgstr "Создать новую задачу"
+
+#: .\templates\project\task_detail.html:12
+msgid "Task detail"
+msgstr "Детали задачи"
+
+#: .\templates\project\task_edit.html:6
+msgid "Edit Task"
+msgstr "Редактирование задачи"
+
+#: .\templates\project\user_characteristic_add.html:6
+msgid "Create a new user characteristic"
+msgstr "Создать новую характеристику пользователя"
+
+#: .\templates\project\user_characteristic_edit.html:6
+msgid "EDIT a user characteristic"
+msgstr "Отредактировать характеристику пользователя"
+
+#: .\templates\project\user_characteristic_reversions.html:5
+msgid "User Characteristic Reversions"
+msgstr "Изменение характеристики пользователя"
+
+#: .\templates\project\user_characteristic_reversions.html:58
+msgid "User Characteristic"
+msgstr "Характеристика пользователя"
